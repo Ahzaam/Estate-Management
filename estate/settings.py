@@ -28,12 +28,13 @@ SECRET_KEY = 'django-insecure-#dzw!twqd2$+pjtj(97fspp*i*g3x3$g+-rtak+pomz=()rniy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['estatemanagements.herokuapp.com']
+ALLOWED_HOSTS = ['estatemanagements.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'service.apps.ServiceConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
