@@ -4,8 +4,12 @@
     <meta charset="utf-8">
     <title>GLiDE Ceylon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     {% load static %}
+    <!-- Set Tab Icon -->
     <link rel="icon" href="{% static 'service/images/logo.png' %}">
+
     <link rel="stylesheet" href="{% static 'service/css/style.css' %}">
 
 
@@ -42,78 +46,108 @@
 
 
 
+    <!-- Chart JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
   </head>
   <body>
 
     <div class="container-fluid" style="text-align:center;">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" href="#">Navbar</a>
+      <!-- Navbar Start -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #e3f2fd;">
+
+         <a class="navbar-brand" href="#" >
+           <img src="{% static 'service/images/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="234">
+           GLiDE Ceylon
+         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <ul class="navbar-nav mr-auto ">
+            <li class="nav-item ">
+              <a class="nav-link" href="#">Feature's </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+
+            <li class="nav-item ">
+              <a class="nav-link" href="#">Documentation </a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
+
+            <li class="nav-item ">
+              <a class="nav-link" href="#">About Us<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
+
+
+
           </ul>
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Enter UID" aria-label="Search"> -->
+            <a class="btn btn-primary my-2 my-sm-0" href='/auth'>Sign in <i class="fa fa-sign-in"></i>  </a>
           </form>
         </div>
       </nav>
 
+<!-- End Of the Navbar -->
 
         <!-- <img src="{% static 'service/images/logo.png' %}" alt=""> -->
       <div class="container-banner">
         <img src="{% static 'service/images/banner.jpg' %}" class="img-fluid d-none d-lg-block d-md-none d-sm-none" width="100%" alt="Banner">
         <img src="{% static 'service/images/banner-small.jpg' %}" class="img-fluid d-lg-none d-md-block d-sm-block" width="100%" alt="Banner">
-        <div class="centered display-1 d-none d-lg-block d-md-none d-sm-none">GLiDE. Ceylon Estate </div>
-        <div class="centered display-3 d-lg-none d-md-block d-sm-block">GLiDE. Ceylon Estate </div>
+        <div class="centered display-1 d-none d-lg-block d-md-none d-sm-none">GLiDE. Ceylon Estate
+          <br>
+              <div class="h3 my-4">Management System</div>
+       </div>
+        <div class="centered display-3 d-lg-none d-md-block d-sm-block">GLiDE. Ceylon Estate <br><br>
+            <div class="lead">Estate Management System</div>
+        </div>
+
+
+
+
       </div>
 
 
       <div class="wrapper mx-lg-5 px-lg-5">
-        <div class="my-5 mx-5">
+
+
+        <!-- <div class="my-5 mx-5">
           <p class='lead'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
+        </div> -->
          <!-- <img src="{% static 'service/images/banner.jpg' %}" alt="hifsuhvgujygky"> -->
 
 
          <div class="row my-5">
            <div class="col-sm my-5" height="200px;">
-            <i class="fa-solid fa-camera fa-10x"></i>
+            <i class="fas fa-users fa-10x m-5 text-secondary"></i>
+
+            <p class="font-weight-light h4">Create & Manage Workers, Clients </p>
             </div>
            <div class="col-sm my-5" height="200px;">
-             <i class="fa-solid fa-coffee fa-10x"></i>
+             <i class="fas fa-server text-info fa-10x m-5"></i>
+             <p class="font-weight-light h4">Calculate salary, profit,<br>tea leaf weight from one click</p>
            </div>
            <div class="col-sm my-5" height="200px;">
-             <i class="fas fa-tasks fa-10x"></i>
+             <i class="fas fa-file-excel fa-10x m-5 text-success "></i><br>
+             <p class="font-weight-light h4">Get summary of data in Excel</p>
            </div>
          </div>
 
       </div>
+
+
+      <div class="chart">
+
+      </div>
+
+
+
+
+
        <!-- End Of THe Container -->
     </div>
+
+
   </body>
 </html>
