@@ -100,7 +100,7 @@
               <div class="h3 my-4">Management System</div>
        </div>
         <div class="centered display-3 d-lg-none d-md-block d-sm-block">GLiDE. Ceylon Estate <br><br>
-            <div class="lead">Estate Management System</div>
+            <div class="lead">Management System</div>
         </div>
 
 
@@ -126,7 +126,7 @@
             </div>
            <div class="col-sm my-5" height="200px;">
              <i class="fas fa-server text-info fa-10x m-5"></i>
-             <p class="font-weight-light h4">Calculate salary, profit,<br>tea leaf weight from one click</p>
+             <p class="font-weight-light h4">Calculate salary, profit and Tea leaf weight</p>
            </div>
            <div class="col-sm my-5" height="200px;">
              <i class="fas fa-file-excel fa-10x m-5 text-success "></i><br>
@@ -137,11 +137,62 @@
       </div>
 
 
-      <div class="chart">
+      <br><br><br>
+      <div class="row">
+        <div class="feature col-lg-7 offset-lg-2 mx-lg-5 mx-md-1 text-center">
+          <p class='display-1 d-none d-lg-block d-md-none d-sm-none mt-5' style='font-size:120px;'>Faster &nbsp&nbsp&nbsp<i class="fa-solid fa-person-running text-success"></i> <br> Easier &nbsp&nbsp <i class="fa-solid fa-hands text-success"></i> <br>  Efficient&nbsp <i class="fa fa-bolt text-success" aria-hidden="true"></i> </p>
+          <p class='display-4 d-lg-none d-md-block d-sm-block mt-5'>Faster &nbsp&nbsp&nbsp<i class="fa-solid fa-person-running text-success"></i> <br> Easier &nbsp&nbsp <i class="fa-solid fa-hands text-success"></i> <br>  Efficient&nbsp <i class="fa fa-bolt text-success" aria-hidden="true"></i></p>
 
+        </div>
+
+        <div class="feature col-lg-3 offset-lg-2 mx-lg-5 mx-sm-1 text-left px-lg-4 py-5 ">
+          <div class="w-100 text-center my-5">
+            <img src="{% static 'service/images/benefit.png' %}" class="img-fluid " width="200px" alt="feature">
+          </div>
+          <p class='lead h4'> Using our service, you can easily calculate
+            the tea weight workers collected over the month and efficiently process each worker's
+            salary with one click. If your collecting agent has an account, you can add a link to their
+            account and get details about how much you have supplied to them, what's the current price of the tea and get details about your payment
+          </p>
+        </div>
       </div>
 
 
+      <br><br><br>
+      <div class="container-fluid text-left" >
+
+        <div class="datavisual d-none d-lg-block d-md-none d-sm-none  mx-5" style='border-left: 2px solid red;'>
+          <h3 class=' display-4 my-5 mx-5'><i class="fas fa-wave-square text-primary"></i>  Visualize Your Data</h3>
+
+        </div>
+
+        <div class="datavisual d-lg-none d-md-block d-sm-block">
+          <h3 class='display-6 my-5'> Visualize Your Data</h3>
+        </div>
+
+
+        <div class="row pt-5 offset-lg-1">
+
+          <div class="col-lg-3 col-sm-12 my-5">
+            <div class="myChart mt-5" >
+              <canvas id="myChart" height='200px'></canvas>
+            </div>
+          </div>
+
+          <div class="offset-lg-1 col-lg-7 col-sm-12 my-5">
+            <div class="myChart" >
+              <canvas id="myChart2" height='200px'></canvas>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+      <script src="{% static 'service/js/chart.js' %}"></script>
 
 
 
