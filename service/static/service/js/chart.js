@@ -16,7 +16,7 @@
             'rgb(255, 205, 86)',
             'rgb(255, 0, 155)'
           ],
-          hoverOffset: 4
+          hoverOffset: 20
         }]
       };
 
