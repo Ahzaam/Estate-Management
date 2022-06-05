@@ -57,7 +57,7 @@
           const ctx = chart.canvas.getContext('2d');
           ctx.save();
           ctx.globalCompositeOperation = 'destination-over';
-          ctx.fillStyle = 'white';
+          ctx.fillStyle = 'rgba(255, 255, 255, 0)';
           ctx.fillRect(0, 0, chart.width, chart.height);
           ctx.restore();
         }
