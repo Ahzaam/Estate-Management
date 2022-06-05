@@ -70,7 +70,7 @@
         data: data,
         options: {
           animation:{
-            delay:2000,
+            delay:1000,
           },
         },
         plugins: [plugin],
@@ -85,9 +85,17 @@
         data: data2,
         options: {
           animation:{
-            delay: 2000,
+            tension: {
+              duration: 1500,
+              easing: 'linear',
+              from: 1,
+              to: 0,
+              loop: true
+          },
+            delay: 1000,
           },
           responsive: true,
+          maintainAspectRatio:false,
           plugins: {
             legend: {
               position: 'top',
@@ -114,7 +122,7 @@
     }
 
     $(window).scroll(function() {
-      if (isScrolledIntoView('#myChart ')) {
+      if (isScrolledIntoView('#myChart2')) {
           if (inView) { return; }
           inView = true;
           console.log('')
