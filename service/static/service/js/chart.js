@@ -70,7 +70,7 @@
         data: data,
         options: {
           animation:{
-            delay:1000,
+            delay:500,
           },
         },
         plugins: [plugin],
@@ -92,8 +92,11 @@
               to: 0,
               loop: true
           },
-            delay: 1000,
+            delay: 500,
           },
+          borderWidth: 5,
+          hoverRadius:10,
+          pointStyle:'circle',
           responsive: true,
           maintainAspectRatio:false,
           plugins: {
@@ -122,7 +125,7 @@
     }
 
     $(window).scroll(function() {
-      if (isScrolledIntoView('#myChart2')) {
+        if (isScrolledIntoView('#myChart2')) {
           if (inView) { return; }
           inView = true;
           console.log('')
