@@ -20,6 +20,7 @@ $(window).scroll(function() {
       console.log('')
       myLoop();
     } else {
+      
       inView = false;
     }
   });
@@ -38,6 +39,7 @@ $(window).scroll(function() {
       }                       //  ..  setTimeout()
     }, 200)
   }
+
 
 
 
