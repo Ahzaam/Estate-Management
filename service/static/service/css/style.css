@@ -36,3 +36,13 @@
   transition-duration: 0.5s;
   box-shadow: 10px 10px 5px rgba(136, 136, 136, 0.2);
 }
+
+
+.largebanner{
+  height:500px;
+}
+
+
+.smallbanner{
+  height:1000px;
+}
