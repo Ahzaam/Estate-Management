@@ -51,6 +51,9 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
+    <!-- Text Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
 
 
   </head>
@@ -100,12 +103,14 @@
         <img src="{% static 'service/images/banner.jpg' %}" class="img-fluid largebanner d-none d-lg-block d-md-none d-sm-none" width="100%" alt="Banner">
         <img src="{% static 'service/images/banner-small.jpg' %}" class="img-fluid smallbanner d-lg-none d-md-block d-sm-block" width="100%" alt="Banner">
 
-        <div class="centered display-1 d-none d-lg-block d-md-none d-sm-none">
+        <h1 class="centered ml12 mlf1 d-none d-lg-block d-md-none d-sm-none" width="100%">GLiDE. Ceylon Estate</h1>
+
+        <!-- <div class="centered display-1 ">
           GLiDE. Ceylon Estate <br>
             <div class="h3 my-4">
               Management System
             </div>
-        </div>
+        </div> -->
 
         <div class="centered display-3 d-lg-none d-md-block d-sm-block">GLiDE. Ceylon Estate <br><br>
             <div class="lead">Management System</div>
@@ -237,11 +242,18 @@
 
 
           </div>
-          <div class="connecteddiv  col-lg-7 offset-lg-2 mx-lg-5 mx-2 mt-5" >
-            <p class='display-4' style='font-size:40px;'>
-              Connect with your Estate, Supplier, Clients and workers and notify them of or request what you need
-            </p>
-            <button type="button" class='btn btn-primary my-5' name="button">See How</button>
+
+
+          <div class="connecteddiv  col-lg-7 offset-lg-2 mx-lg-5 mx-2 mt-5"  id='connecteddiv'>
+            <h1 class="ml9">
+              <span class="text-wrapper">
+                <span class="letters display-4" style='font-size:40px;'>
+                    Connect with your Estate, Supplier, Clients and workers and notify them of or request what you need.
+                </span>
+              </span>
+            </h1>
+
+            <button type="button" class='btn btn-primary my-5' id='' name="button">See How</button>
 
           </div>
         </div>
@@ -270,9 +282,9 @@
           <h3 class='display-6 my-5 mx-2'> Account's <i class="account-icon fas fa-users" style='color: #ff009b;'></i></h3>
         </div>
 
-        <div class="row mx-lg-5 mx-sm-3">
+        <div class="row mx-lg-5 mx-sm-3" id='fec'>
 
-          <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 my-5 offset-lg-1"  >
+          <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 my-5 offset-lg-1"  id='ac1'>
 
             <div onclick="window.location='http://google.com';" >
 
@@ -294,7 +306,7 @@
           </div>
 
 
-          <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 my-5 offset-lg-1"  >
+          <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 my-5 offset-lg-1"  id='ac2'>
 
             <div onclick="window.location='http://google.com';" >
 
@@ -317,13 +329,13 @@
 
 
 
-          <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 offset-lg-1 my-5  ">
+          <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 offset-lg-1 my-5 "  id='ac3'>
 
             <div onclick="window.location='http://google.com';">
 
               <div class="text-center my-5">
                 <i class="fas fa-user fa-5x" style='color:rgb(54, 162, 235);'></i>
-                <p class='h3 text-muted'>Feild Owner</p>
+                <p class='h3 text-muted'>Field Owner</p>
               </div>
 
               <div class="my-5">
@@ -338,7 +350,7 @@
 
           </div>
 
-          <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 offset-lg-1 my-5  ">
+          <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 offset-lg-1 my-5  " id='ac4'>
 
             <div onclick="window.location='http://google.com';">
 
@@ -354,7 +366,7 @@
             </div>
 
             <div class="row my-5 px-3">
-              <button type="button" class="btn btn-primary btn-block disabled" name="button">Must Be Created By Owne/Supplierr</button>
+              <button type="button" class="btn btn-primary btn-block disabled" name="button">Must Be Created By the Owner/Supplier</button>
             </div>
 
           </div>
@@ -371,5 +383,11 @@
     </div>
 
     <script src="{% static 'service/js/chart.js' %}"></script>
+    <script src="{% static 'service/js/home.js' %}"></script>
+
+
+
+
+
   </body>
 </html>

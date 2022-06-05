@@ -27,8 +27,8 @@
   border: 1px solid grey;
   border-radius:10px;
   cursor: pointer;
-  transition-duration: 0.5s;
-
+  transition-duration: 0.8s;
+  opacity:0;
 }
 
 .featureacc:hover{
@@ -57,4 +57,48 @@
   /* border:1px solid rgba(103, 103, 103, 0.53); */
   /* border-radius:10px; */
   /* box-shadow: 10px 10px 5px rgba(136, 136, 136, 0.2); */
+}
+
+.ml9 {
+  position: relative;
+
+}
+
+
+
+
+
+
+
+.mlf1{
+  font-size: 70px;
+}
+.mlf2{
+  font-size: 2em;
+}
+
+.ml12 {
+  font-weight: 200;
+  /* text-transform: uppercase; */
+  letter-spacing: 0.1em;
+}
+
+.ml12 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+.ml9 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml9 .letter {
+  transform-origin: 50% 100%;
+  display: inline-block;
+  line-height: 1em;
 }
