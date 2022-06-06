@@ -74,15 +74,11 @@
         <img src="{% static 'service/images/banner.jpg' %}" class="img-fluid largebanner d-none d-lg-block d-md-none d-sm-none" height="500px" width="100%" alt="Banner">
         <img src="{% static 'service/images/banner-small.jpg' %}" class="img-fluid smallbanner d-lg-none d-md-block d-sm-block" width="1000px" alt="Banner">
 
-        <h1 class="centered ml12 mlf1 d-none d-lg-block d-md-none d-sm-none" width="100%">GLiDE. Ceylon Estate</h1>
+        <!-- Large Screen -->
+        <h1 class="centered ml12 mlf1 d-none d-lg-block d-md-none d-sm-none" width="100%" style="white-space: nowrap;">GLiDE. Ceylon Estate</h1>
 
-        <!-- <div class="centered display-1 ">
-          GLiDE. Ceylon Estate <br>
-            <div class="h3 my-4">
-              Management System
-            </div>
-        </div> -->
 
+        <!-- Small Screen -->
         <div class="centered-sm  display-3 d-lg-none d-md-block d-sm-block">GLiDE. Ceylon Estate <br><br>
             <div class="lead">Management System</div>
         </div>
@@ -125,12 +121,14 @@
 
         <div class="feature col-lg-7 offset-lg-2 mx-lg-5 mx-2 mt-5 text-center">
 
+          <!-- Large Screen -->
           <p class='display-1 d-none d-lg-block d-md-none d-sm-none mt-5' style='font-size:120px;'>
             Faster &nbsp&nbsp&nbsp<i class="fa-solid fa-person-running " style='color:#14397d;'></i> <br>
             Easier &nbsp&nbsp <i class="fa-solid fa-hands " style='color:#77b5d9;'></i> <br>
             Efficient&nbsp <i class="fa fa-bolt" style='color:#9ad6ff;' aria-hidden="true"></i>
            </p>
 
+           <!-- Small Screen -->
           <p class='display-4 d-lg-none d-md-block d-sm-block mt-5'>
             Faster &nbsp&nbsp&nbsp<i class="fa-solid fa-person-running " style='color:#14397d;'></i> <br>
             Easier &nbsp&nbsp <i class="fa-solid fa-hands " style='color:#77b5d9;'></i> <br>
@@ -165,10 +163,13 @@
 
       <div class="container-fluid text-left mt-5" style='background-image: url({% static 'service/images/Ellipse13.png' %}); background-repeat: no-repeat;min-height: 800px;  background-position:right;'>
 
+        <!-- Large Screen -->
         <div class="datavisual d-none d-lg-block d-md-none d-sm-none  mx-5" style='border-left: 2px solid red;'>
           <h3 class=' display-4 my-5 mx-5'>  Visualize Your Data <i class="fas fa-chart-line" style='color:rgb(54, 162, 235);'></i></h3>
         </div>
 
+
+        <!-- Small Screen -->
         <div class="datavisual d-lg-none d-md-block d-sm-block " style='border-left: 2px solid red;'>
           <h3 class='display-6 my-2 mx-3'> Visualize Your Data <i class="fas fa-chart-line" style='color:rgb(54, 162, 235);'></i></h3>
         </div>
@@ -198,27 +199,35 @@
 
       <div class="mx-1  mt-5 text-left" style='background-image: url({% static 'service/images/greyg.jpg' %})'>
         <br>
+        <!-- Large Screen -->
         <div class="datavisual d-none d-lg-block d-md-none d-sm-none  mx-5 " style='border-left: 2px solid white;'>
           <h3 class=' display-4 my-3 mx-5'>Get Connected <i class="fa-brands fa-connectdevelop" style='color: #d600f9;'></i></h3>
         </div>
-        <i class=""></i>
+
+
+        <!-- Small Screen -->
         <div class="datavisual d-lg-none d-md-block d-sm-block" style='border-left: 2px solid white;'>
           <h3 class='display-6 my-3 mx-2'>Get Connected <i class="fa-brands fa-connectdevelop" style='color: #d600f9;'></i></h3>
         </div>
 
         <div class="row ">
+
           <div class="col-lg-3 offset-lg-2 mx-lg-5 mx-2 text-left px-lg-4 py-5">
-
             <img src="/static/service/images/connection.png" style='width: 100%; height:100%;' alt="">
-
-
           </div>
 
 
           <div class="connecteddiv  col-lg-7 offset-lg-2 mx-lg-5 mx-2"  id='connecteddiv' onscroll="textAnimate()">
             <h1 class="ml9">
               <span class="text-wrapper">
-                <span class="letters display-4" style='font-size:40px;'>
+
+                <!-- Large Screen -->
+                <span class="letters display-4 d-none d-lg-block d-md-none d-sm-none" style='font-size:40px; display: inline-block;'>
+                    Connect with your Estate, Supplier, Clients and workers and notify them of or request what you need.
+                </span>
+
+                <!-- Small Screen -->
+                <span class=" display-4 d-lg-none d-md-block d-sm-block" style='font-size:40px; display: inline-block;'>
                     Connect with your Estate, Supplier, Clients and workers and notify them of or request what you need.
                 </span>
               </span>
@@ -243,12 +252,15 @@
 
       <!-- Account Types -->
 
-      <div class="mx-1  mt-5 text-left" >
+      <div class="mx-1  my-5 text-left" >
+
+        <!-- Large Screen -->
 
         <div class="datavisual d-none d-lg-block d-md-none d-sm-none  mx-5" style='border-left: 2px solid red;'>
           <h3 class=' display-4 my-5 mx-5'>Account's <i class="account-icon fas fa-users" style='color: #ff009b;'></i></h3>
         </div>
 
+        <!-- Small Screen -->
         <div class="datavisual d-lg-none d-md-block d-sm-block" style='border-left: 2px solid red;'>
           <h3 class='display-6 my-5 mx-2'> Account's <i class="account-icon fas fa-users" style='color: #ff009b;'></i></h3>
         </div>
@@ -349,6 +361,68 @@
 
 
 
+      <!-- Start Of Footer -->
+      <div class="footer my-5">
+        <div class="row">
+          <div class="col-lg-4 mx-lg-5">
+            <div class="m-5">
+              <img src="{% static 'service/images/logo.png' %}" class='w-100 ' alt="">
+            </div>
+            <h1 class='display-3 text-white d-none d-lg-block d-md-none d-sm-none' >GLiDE Ceylon</h1>
+
+            <h1 class='display-3 text-white d-lg-none d-md-block d-sm-block' style='font-size:40px;'>GLiDE Ceylon</h1>
+          </div>
+
+          <div class="offset-lg-1 col-lg-6 my-5 mx-lg-5">
+
+            <!-- Large Screen -->
+            <div class='d-none d-lg-block d-md-none d-sm-none' style="min-height:400px">
+              <div class="my-5">
+                <h1 class='h1 text-white'>  Estate Management System</h1>
+              </div>
+              <div class="">
+                <p class='lead text-white text-left mx-2' style='font-size:30px; '>
+                  Contact to get information about estate management systems and if you need a system on your own we can provide that too
+                </p>
+              </div>
+            </div>
+
+
+            <!-- Small Screen -->
+            <div class='d-lg-none d-md-block d-sm-block' style="min-height:400px">
+              <div class="my-5">
+                <h1 class='h5 text-white'>  Estate Management System</h1>
+              </div>
+              <div class="mx-3">
+                <p class='lead text-white text-left mx-2' style='font-size:20px; '>
+                    Contact to get information about estate management systems and if you need a system on your own we can provide that too
+                </p>
+              </div>
+            </div>
+
+
+
+
+            <div class="my-5 text-right text-white align-right">
+              <div class="w-100">
+                <div class="d-inline my-5 mx-lg-5 mx-3">
+                  <a href="https://instagram.com/ahzaam3" target="_blank"><i class="fa-brands fa-instagram fa-3x instagram social mx-2" ></i></a>
+                  <a href="#" target="_blank"><i class="fa-brands fa-twitter fa-3x twitter social mx-2" ></i></a>
+                  <a href="https://github.com/Ahzaam" target="_blank"><i class="fa-brands fa-github fa-3x github social mx-2"></i></a>
+                  <a href="https://www.whatsap.com/" target="_blank"><i class="fa-brands fa-whatsapp-square whatsapp fa-3x"></i></a>
+                </div>
+              </div>
+            </div>
+            <p class='text-white text-lg-right w-100 '>Copyright © GLiDE. Celon ® 2022 | GLiDE.Launch.Cloud </p>
+
+          </div>
+        </div>
+      </div>
+      <!-- End Of Footer -->
+
+
+
+
 
        <!-- End Of THe Container -->
     </div>
@@ -359,7 +433,7 @@
 
 
 
-    <!-- Link Javascript Script Files-->
+    <!-- Link Javascript Script Files--><!-- Link Javascript Script Files-->
 
 
 

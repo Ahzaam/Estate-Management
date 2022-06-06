@@ -83,12 +83,52 @@
 
 }
 
+.footer{
+  min-height: 700px;
+  background: #0F2027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
 
 
+.instagram{
+  color: #f953c6;  /* fallback for old browsers */
+  color: -webkit-linear-gradient(to right, #b91d73, #f953c6);  /* Chrome 10-25, Safari 5.1-6 */
+  color: linear-gradient(to right, #b91d73, #f953c6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.social{
+  cursor: pointer;
+}
+
+.twitter{
+  color:#00d0f5;
+}
+.github{
+  color:white;
+}
+
+.whatsapp{
+  color:#00d61c;
+}
 
 
+/*
+#00f260
+→
+#0575e6 */
 
 
+/*
+#0f0c29
+→
+#302b63
+→
+#24243e */
+
+/* Text Animation Styles */
 
 .mlf1{
   font-size: 70px;
