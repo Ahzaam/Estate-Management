@@ -21,7 +21,7 @@
 
 .col-sm{
   transform:translateY(200px);
-  transition-duration: 0.8s;
+  transition-duration: 0.6s;
 }
 .col-sm:hover{
   transition-duration: 0.5s;
