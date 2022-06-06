@@ -1,5 +1,6 @@
 .container-banner {
   position: relative;
+  min-height:500px;
 }
 
 .centered {
