@@ -114,6 +114,10 @@
   color:#00d61c;
 }
 
+.location{
+  cursor: pointer;
+}
+
 
 /*
 #00f260
@@ -162,3 +166,10 @@
   display: inline-block;
   line-height: 1em;
 }
+
+
+
+
+
+
+/* Feedback Styles */
