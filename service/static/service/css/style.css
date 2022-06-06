@@ -19,6 +19,14 @@
   color: white;
 }
 
+.col-sm{
+  transform:translateY(200px);
+  transition-duration: 0.8s;
+}
+.col-sm:hover{
+  transition-duration: 0.5s;
+}
+
 .datavisual{
   border-color: red;
 }

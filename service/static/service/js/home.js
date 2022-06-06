@@ -40,6 +40,18 @@ $(window).scroll(function() {
     }, 200)
   }
 
+  j = 1;
+  function myLoopFeature() {         //  create a loop function
+    setTimeout(function() {   //  call a 3s setTimeout when the loop is called   //  your code here
+      console.log('#feature'+j)
+      $('#feature'+j).css('transform', 'translateY(0)')
+      j++;                    //  increment the counter
+      if (j < 5) {           //  if the counter < 10, call the loop function
+        myLoopFeature();             //  ..  again which will trigger another
+      }                       //  ..  setTimeout()
+    }, 200)
+  }
+
 
 
 
@@ -68,6 +80,8 @@ $(window).scroll(function() {
       inView2 = false;
     }
   });
+
+  myLoopFeature()
 
 })
 
