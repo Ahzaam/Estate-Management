@@ -20,7 +20,7 @@ $(window).scroll(function() {
       console.log('')
       myLoop();
     } else {
-      
+
       inView = false;
     }
   });
@@ -31,8 +31,8 @@ $(window).scroll(function() {
 
   function myLoop() {         //  create a loop function
     setTimeout(function() {   //  call a 3s setTimeout when the loop is called
-      console.log('hello');
       $('#ac'+i).css('opacity', 1)   //  your code here
+      $('#ac'+i).css('transform', 'translateX(0)')
       i++;                    //  increment the counter
       if (i < 5) {           //  if the counter < 10, call the loop function
         myLoop();             //  ..  again which will trigger another
@@ -43,35 +43,36 @@ $(window).scroll(function() {
 
 
 
+  var inView2 = false;
+
+  function isScrolledIntoView(elem)
+  {
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+  var elemBottom = elemTop + $(elem).height();
+
+  return ((elemTop <= docViewBottom) && (elemBottom >= docViewTop));
+  }
+
+  $(window).scroll(function() {
+    if (isScrolledIntoView('#connecteddiv')) {
+      if (inView2) { return; }
+      inView2 = true;
+      console.log('')
+      textAnimate() ;
+      // $('#connecteddivbtn').css('transition-duration', '1s')
+      // $('#connecteddivbtn').css('opacity', 1)
+    } else {
+      inView2 = false;
+    }
+  });
 
 })
 
 
-var inView2 = false;
 
-function isScrolledIntoView(elem)
-{
-  var docViewTop = $(window).scrollTop();
-  var docViewBottom = docViewTop + $(window).height();
-
-  var elemTop = $(elem).offset().top;
-var elemBottom = elemTop + $(elem).height();
-
-return ((elemTop <= docViewBottom) && (elemBottom >= docViewTop));
-}
-
-$(window).scroll(function() {
-  if (isScrolledIntoView('#connecteddiv')) {
-    if (inView2) { return; }
-    inView2 = true;
-    console.log('')
-    textAnimate() ;
-    // $('#connecteddivbtn').css('transition-duration', '1s')
-    // $('#connecteddivbtn').css('opacity', 1)
-  } else {
-    inView2 = false;
-  }
-});
 
 
 
@@ -80,6 +81,7 @@ var textWrapper = document.querySelector('.ml9 .letters');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
 function textAnimate() {
+  console.log('Calling Me')
   anime.timeline({loop: false})
     .add({
       targets: '.ml9 .letter',
@@ -89,10 +91,7 @@ function textAnimate() {
       delay: (el, i) => 45 * (i+1)
     })
 
-
-}
-
-
+  }
 
 // Wrap every letter in a span
 var textWrapper = document.querySelector('.ml12');
