@@ -1,4 +1,8 @@
 $(document).ready(function() {
+  const date = new Date()
+   year = date.getFullYear()
+   $('#year').html(year)
+
 
   var inView = false;
 
@@ -43,7 +47,6 @@ $(window).scroll(function() {
   j = 1;
   function myLoopFeature() {         //  create a loop function
     setTimeout(function() {   //  call a 3s setTimeout when the loop is called   //  your code here
-      console.log('#feature'+j)
       $('#feature'+j).css('transform', 'translateY(0)')
       $('#feature'+j).css('opacity', 1)
       j++;                    //  increment the counter
@@ -73,7 +76,6 @@ $(window).scroll(function() {
     if (isScrolledIntoView('#connecteddiv')) {
       if (inView2) { return; }
       inView2 = true;
-      console.log('')
       textAnimate() ;
       // $('#connecteddivbtn').css('transition-duration', '1s')
       // $('#connecteddivbtn').css('opacity', 1)
@@ -96,7 +98,6 @@ var textWrapper = document.querySelector('.ml9 .letters');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
 function textAnimate() {
-  console.log('Calling Me')
   anime.timeline({loop: false})
     .add({
       targets: '.ml9 .letter',

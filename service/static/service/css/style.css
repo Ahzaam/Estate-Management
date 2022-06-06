@@ -5,7 +5,7 @@
 
 .centered {
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -84,7 +84,7 @@
 }
 
 .footer{
-  min-height: 700px;
+  /* min-height: 700px; */
   background: #0F2027;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -135,7 +135,7 @@
 /* Text Animation Styles */
 
 .mlf1{
-  font-size: 70px;
+  font-size: 100px;
 }
 .mlf2{
   font-size: 2em;
