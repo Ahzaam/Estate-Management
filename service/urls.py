@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     path('', views.home , name='home'),
     path('auth/', views.auth, name='auth'),
+    path('about/', views.about, name='about'),
 ]
 
 # urlpatterns += staticfiles_urlpatterns()

@@ -1,543 +1,371 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>GLiDE Ceylon</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+
+{% block body %}
 
 
-    {% load static %}
-    <!-- Set Tab Icon -->
-    <link rel="icon" href="{% static 'service/images/logo.png' %}">
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #e3f2fd;">
 
-    <link rel="stylesheet" href="{% static 'service/css/style.css' %}">
+    <a class="navbar-brand" href="#" >
+      <img src='static/service/images/logo.png' width="30" height="30" class="d-inline-block align-top" alt="234">
+      GLiDE Ceylon
+    </a>
 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <!-- Bootstrap -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto ">
 
-    <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous">
+        <li class="nav-item mx-3">
+          <a class="nav-link" href=""><i class="fa-solid fa-list-ul"></i> Feature's </a>
+        </li>
 
-    <!-- Font Awesome -->
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="#"><i class="fa-solid fa-file-invoice"></i> Documentation </a>
+        </li>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="about/"><i class="fa-solid fa-user-gear"></i> About Us<span class="sr-only">(current)</span></a>
+        </li>
 
+      </ul>
 
-  </head>
-  <body>
+      <form class="form-inline my-2 my-lg-0">
+        <a class="btn btn-primary my-2 my-sm-0" href='/auth'>Sign in <i class="fa fa-sign-in"></i>  </a>
+      </form>
 
-    <div class="container-fluid" style="text-align:center;">
-      <!-- Navbar Start -->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #e3f2fd;">
-
-         <a class="navbar-brand" href="#" >
-           <img src="{% static 'service/images/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="234">
-           GLiDE Ceylon
-         </a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto ">
-
-            <li class="nav-item mx-3">
-              <a class="nav-link" href="#"><i class="fa-solid fa-list-ul"></i> Feature's </a>
-            </li>
-
-            <li class="nav-item mx-3">
-              <a class="nav-link" href="#"><i class="fa-solid fa-file-invoice"></i> Documentation </a>
-            </li>
-
-            <li class="nav-item mx-3">
-              <a class="nav-link" href="#"><i class="fa-solid fa-user-gear"></i> About Us<span class="sr-only">(current)</span></a>
-            </li>
-
-          </ul>
-
-          <form class="form-inline my-2 my-lg-0">
-            <a class="btn btn-primary my-2 my-sm-0" href='/auth'>Sign in <i class="fa fa-sign-in"></i>  </a>
-          </form>
-
-        </div>
-      </nav>
-
-      <!-- End Of the Navbar -->
+    </div>
+  </nav>
+  <!-- End Of the Navbar -->
 
 
-      <div class=" footer text-center py-5 ">
-        <div class="row mx-2">
-          <div class="col-lg-4 col-md-8 col-sm-11 offset-md-2 offset-lg-1">
+  <div class=" footer text-center py-5 ">
+    <div class="row mx-2">
+      <div class="col-lg-4 col-md-8 col-sm-11 offset-md-2 offset-lg-1">
 
-            <div class="mx-lg-5 mx-2">
-              <img src="{% static 'service/images/logo.png' %}" class='w-100 ' alt="">
-            </div>
-
-            <div class="display-3 d-lg-none d-md-block d-sm-block  text-white">GLiDE. Ceylon <br><br>
-              <div class="lead">Management System</div>
-            </div>
-          </div>
-            <br>
-            <div class="mx-5 text-right">
-              <br><br><br><br><br><br>
-              <h1 class=" text-white ml12 mlf1 d-none d-lg-block d-md-none d-sm-none" width="100%" style="white-space: nowrap;">GLiDE Ceylon</h1>
-              <p class="text-white lead mx-3">Since 2019</p>
-            </div>
+        <div class="mx-lg-5 mx-2">
+          <img src="static/service/images/logo.png" class='w-100 ' alt="">
         </div>
 
-
-      </div>
-
-
-      <!-- 3 Benefit's -->
-
-      <div class="wrapper mx-lg-5 px-lg-5">
-
-        <div class="row my-5">
-
-          <div class="col-sm my-5" height="200px;" id='feature1'>
-            <i class="fas fa-users fa-10x m-5 " style='color:rgb(255, 205, 86)'></i>
-            <p class="font-weight-light h4">Create & Manage Workers, Clients </p>
-          </div>
-
-           <div class="col-sm my-5" height="200px;" id='feature2'>
-             <i class="fas fa-server  fa-10x m-5" style='color:rgb(54, 162, 235);'></i>
-             <p class="font-weight-light h4">Calculate salary and profit with Tea leaf weight</p>
-           </div>
-
-           <div class="col-sm my-5" height="200px;" id='feature3'>
-             <i class="fas fa-file-excel fa-10x m-5" style='color:rgb(73, 255, 129);'></i><br>
-             <p class="font-weight-light h4">Get a summary of data in Excel, PDF </p>
-           </div>
-
-         </div>
-      </div>
-
-      <!-- End of Benefit -->
-
-
-
-      <br><br><br>
-
-      <!-- Features  -->
-
-      <div class="row" style='background-image: url({% static 'service/images/Ellipse14.jpg' %}); background-repeat: no-repeat;'>
-
-        <div class="feature col-lg-3 offset-lg-2 mx-lg-5 mx-2 mt-5 text-left px-lg-4 py-5 ">
-
-          <div class="w-100 text-center my-5">
-            <i class="fa-solid fa-circle-check fa-7x my-3" style='color:#16ff0a;' ></i>
-          </div>
-
-          <p class='lead h4 my-5'>
-            Using our service, you can easily calculate
-            the tea weight workers collected over the month and efficiently process each worker's
-            salary with one click. If your factor supplier has an account, you can add a link to their
-            account and get details about how much you have supplied to them,
-            what's the current price of the tea and get details about your payment
-
-            <br><br>
-
-            Create a acoount and get 2 months free trail
-          </p>
-
-          <br>
-        </div>
-
-        <div class="feature col-lg-7 offset-lg-2 mx-lg-5 mx-2 mt-5 text-center">
-
-          <!-- Large Screen -->
-          <p class='display-1 d-none d-lg-block d-md-none d-sm-none mt-5' style='font-size:120px;'>
-            Faster &nbsp&nbsp&nbsp<i class="fa-solid fa-person-running " style='color:#14397d;'></i> <br>
-            Easier &nbsp&nbsp <i class="fa-solid fa-hands " style='color:#77b5d9;'></i> <br>
-            Efficient&nbsp <i class="fa fa-bolt" style='color:#9ad6ff;' aria-hidden="true"></i>
-           </p>
-
-           <!-- Small Screen -->
-          <p class='display-4 d-lg-none d-md-block d-sm-block mt-5'>
-            Faster &nbsp&nbsp&nbsp<i class="fa-solid fa-person-running " style='color:#14397d;'></i> <br>
-            Easier &nbsp&nbsp <i class="fa-solid fa-hands " style='color:#77b5d9;'></i> <br>
-            Efficient&nbsp <i class="fa fa-bolt" style='color:#9ad6ff;' aria-hidden="true"></i>
-          </p>
-
-        </div>
-
-
-      </div>
-
-      <!-- End of Feature -->
-
-      <br><br><br><br><br><br>
-
-      <!-- Data Visulization -->
-
-      <div class="container-fluid text-left mt-5" style='background-image: url({% static 'service/images/Ellipse13.png' %}); background-repeat: no-repeat;min-height: 800px;  background-position:right;'>
-
-        <!-- Large Screen -->
-        <div class="datavisual d-none d-lg-block d-md-none d-sm-none  mx-5" style='border-left: 2px solid red;'>
-          <h3 class=' display-4 my-5 mx-5'>  Visualize Your Data <i class="fas fa-chart-line" style='color:rgb(54, 162, 235);'></i></h3>
-        </div>
-
-
-        <!-- Small Screen -->
-        <div class="datavisual d-lg-none d-md-block d-sm-block " style='border-left: 2px solid red;'>
-          <h3 class='display-6 my-2 mx-3'> Visualize Your Data <i class="fas fa-chart-line" style='color:rgb(54, 162, 235);'></i></h3>
-        </div>
-
-
-        <div class="row pt-5 pt-lg-1 offset-lg-1">
-
-          <div class="col-lg-3 col-sm-12 my-lg-5 my-l">
-            <div class="myChart mt-5" >
-              <canvas id="myChart" height='200px'></canvas>
-            </div>
-          </div>
-
-          <div class="offset-lg-1 col-lg-7 col-sm-12 my-5">
-            <div class="myChart" style="position: relative; height:50vh; max-height:500px; ">
-              <canvas id="myChart2" height='200px'></canvas>
-            </div>
-          </div>
-
+        <div class="display-3 d-lg-none d-md-block d-sm-block  text-white">GLiDE. Ceylon <br><br>
+          <div class="lead">Management System</div>
         </div>
       </div>
-
-      <!-- End Of Data Visulization -->
       <br>
-
-      <!-- Start Of Get Connected -->
-
-      <div class="mx-1  mt-5 text-left" style='background-image: url({% static 'service/images/greyg.jpg' %})'>
-        <br>
-        <!-- Large Screen -->
-        <div class="datavisual d-none d-lg-block d-md-none d-sm-none  mx-5 " style='border-left: 2px solid white;'>
-          <h3 class=' display-4 my-3 mx-5'>Get Connected <i class="fa-brands fa-connectdevelop" style='color: #d600f9;'></i></h3>
-        </div>
+      <div class="mx-5 text-right">
+        <br><br><br><br><br><br>
+        <h1 class=" text-white ml12 mlf1 d-none d-lg-block d-md-none d-sm-none" width="100%" style="white-space: nowrap;">GLiDE Ceylon</h1>
+        <p class="text-white lead mx-3">Since 2019</p>
+      </div>
+    </div>
 
 
-        <!-- Small Screen -->
-        <div class="datavisual d-lg-none d-md-block d-sm-block" style='border-left: 2px solid white;'>
-          <h3 class='display-6 my-3 mx-2'>Get Connected <i class="fa-brands fa-connectdevelop" style='color: #d600f9;'></i></h3>
-        </div>
-
-        <div class="row ">
-
-          <div class="col-lg-3 offset-lg-2 mx-lg-5 mx-2 text-left px-lg-4 py-5">
-            <img src="/static/service/images/connection.png" style='width: 100%; height:100%;' alt="">
-          </div>
+  </div>
 
 
-          <div class="connecteddiv  col-lg-7 offset-lg-2 mx-lg-5 mx-2"  id='connecteddiv' onscroll="textAnimate()">
-            <h1 class="ml9">
-              <span class="text-wrapper">
+  <!-- 3 Benefit's -->
 
-                <!-- Large Screen -->
-                <span class="letters display-4 d-none d-lg-block d-md-none d-sm-none" style='font-size:40px; display: inline-block;'>
-                    Connect with your Estate, Supplier, Clients and workers and &nbsp notify them of or request what you need.
-                </span>
+  <div class="wrapper mx-lg-5 px-lg-5">
 
-                <!-- Small Screen -->
-                <span class=" display-4 d-lg-none d-md-block d-sm-block" style='font-size:40px; display: inline-block;'>
-                    Connect with your Estate, Supplier, Clients and workers and notify them of or request what you need.
-                </span>
-              </span>
-            </h1>
+    <div class="row my-5">
 
-            <button type="button" class='btn btn-primary my-5' id='' name="button">See How</button>
-
-          </div>
-        </div>
-
-
-
+      <div class="col-sm my-5" height="200px;" id='feature1'>
+        <i class="fas fa-users fa-10x m-5 " style='color:rgb(255, 205, 86)'></i>
+        <p class="font-weight-light h4">Create & Manage Workers, Clients </p>
       </div>
 
-
-      <!-- End Of Get Connected -->
-
-      <br><br><br><br>
-
-      <!-- Start Of Location -->
-
-
-      <div class="container-banner" style=' min-height:500px; ' >
-        <img src="{% static 'service/images/banner.jpg' %}" class='w-100 d-none d-lg-block d-md-none d-sm-none' alt="Banner">
-        <img src="{% static 'service/images/banner-small.jpg' %}" alt="" class='w-100 d-lg-none d-md-block d-sm-block'>
-        <div class="centered d-none d-lg-block d-md-none d-sm-none">
-          <h1 class='display-2'><i class="fa-solid fa-location-dot text-white mx-2 text-underline"></i> Hapugastalawa</h1>
-        </div>
-
-        <div class="centered d-lg-none d-md-block d-sm-block">
-          <h1 class='display-5'><i class="fa-solid fa-location-dot text-white mx-2 text-underline"></i> Hapugastalawa</h1>
-        </div>
-
+      <div class="col-sm my-5" height="200px;" id='feature2'>
+        <i class="fas fa-server  fa-10x m-5" style='color:rgb(54, 162, 235);'></i>
+        <p class="font-weight-light h4">Calculate salary and profit with Tea leaf weight</p>
       </div>
 
-      <!-- End Of Location -->
+      <div class="col-sm my-5" height="200px;" id='feature3'>
+        <i class="fas fa-file-excel fa-10x m-5" style='color:rgb(73, 255, 129);'></i><br>
+        <p class="font-weight-light h4">Get a summary of data in Excel, PDF </p>
+      </div>
 
+    </div>
+  </div>
 
-      <br><br><br><br>
-
-      <!-- Account Types -->
-
-      <div class="mx-1  my-5 text-left" >
-
-        <!-- Large Screen -->
-
-        <div class="datavisual d-none d-lg-block d-md-none d-sm-none  mx-5" style='border-left: 2px solid red;'>
-          <h3 class=' display-4 my-5 mx-5'>Account's <i class="account-icon fas fa-users" style='color: #ff009b;'></i></h3>
-        </div>
-
-        <!-- Small Screen -->
-        <div class="datavisual d-lg-none d-md-block d-sm-block" style='border-left: 2px solid red;'>
-          <h3 class='display-6 my-5 mx-2'> Account's <i class="account-icon fas fa-users" style='color: #ff009b;'></i></h3>
-        </div>
-
-        <div class="row mx-lg-5 mx-sm-3" id='fec'>
-
-          <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 my-5 offset-lg-1"  id='ac1'>
-
-            <div onclick="window.location='http://google.com';" >
-
-              <div class="text-center my-5" >
-                <i class="fas fa-industry fa-5x" style='color:rgb(73, 255, 129);'></i>
-                <p class='h3 text-muted'>Tea Factory </p>
-              </div>
-
-              <div class="my-5">
-
-              </div>
-
-            </div>
-
-            <div class="row px-3">
-              <button type="button" class="btn btn-primary my-2 btn-block"  onclick="window.location='http://youtube.com';" name="button">Buy 599,999LKR</button>
-            </div>
-
-          </div>
-
-
-          <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 my-5 offset-lg-1"  id='ac2'>
-
-            <div onclick="window.location='http://google.com';" >
-
-              <div class="text-center my-5" >
-                <i class="fa-solid fa-truck-fast fa-5x" style='color:rgb(255, 205, 86);'></i>
-                <p class='h3 text-muted'>Factory Supllier</p>
-              </div>
-
-              <div class="my-5">
-
-              </div>
-
-            </div>
-
-            <div class="row px-3">
-              <button type="button" class="btn btn-primary my-2 btn-block"  onclick="window.location='http://youtube.com';" name="button">Buy 9999LKR</button>
-            </div>
-
-          </div>
+  <!-- End of Benefit -->
 
 
 
-          <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 offset-lg-1 my-5 "  id='ac3'>
+  <br><br><br>
 
-            <div onclick="window.location='http://google.com';">
+  <!-- Features  -->
 
-              <div class="text-center my-5">
-                <i class="fas fa-user fa-5x" style='color:rgb(54, 162, 235);'></i>
-                <p class='h3 text-muted'>Field Owner</p>
-              </div>
+  <div class="row" style='background-image: url('static/service/images/Ellipse14.jpg'); background-repeat: no-repeat;'>
 
-              <div class="my-5">
+    <div class="feature col-lg-3 offset-lg-2 mx-lg-5 mx-2 mt-5 text-left px-lg-4 py-5 ">
 
-              </div>
+      <div class="w-100 text-center my-5">
+        <i class="fa-solid fa-circle-check fa-7x my-3" style='color:#16ff0a;' ></i>
+      </div>
 
-            </div>
+      <p class='lead h4 my-5'>
+        Using our service, you can easily calculate
+        the tea weight workers collected over the month and efficiently process each worker's
+        salary with one click. If your factor supplier has an account, you can add a link to their
+        account and get details about how much you have supplied to them,
+        what's the current price of the tea and get details about your payment
 
-            <div class="row px-3">
-              <button type="button" class="btn btn-primary my-2 btn-block" name="button">Buy 4999LKR</button>
-            </div>
+        <br><br>
 
-          </div>
+        Create a acoount and get 2 months free trail
+      </p>
 
-          <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 offset-lg-1 my-5  " id='ac4'>
+      <br>
+    </div>
 
-            <div onclick="window.location='http://google.com';">
+    <div class="feature col-lg-7 offset-lg-2 mx-lg-5 mx-2 mt-5 text-center">
 
-              <div class="text-center my-5">
-                <i class="fas fa-digging fa-5x" style='color:rgb(255, 99, 132);'></i>
-                <p class='h3 text-muted'>Worker</p>
-              </div>
+      <!-- Large Screen -->
+      <p class='display-1 d-none d-lg-block d-md-none d-sm-none mt-5' style='font-size:120px;'>
+        Faster &nbsp&nbsp&nbsp<i class="fa-solid fa-person-running " style='color:#14397d;'></i> <br>
+        Easier &nbsp&nbsp <i class="fa-solid fa-hands " style='color:#77b5d9;'></i> <br>
+        Efficient&nbsp <i class="fa fa-bolt" style='color:#9ad6ff;' aria-hidden="true"></i>
+      </p>
 
-              <div class="my-5">
+      <!-- Small Screen -->
+      <p class='display-4 d-lg-none d-md-block d-sm-block mt-5'>
+        Faster &nbsp&nbsp&nbsp<i class="fa-solid fa-person-running " style='color:#14397d;'></i> <br>
+        Easier &nbsp&nbsp <i class="fa-solid fa-hands " style='color:#77b5d9;'></i> <br>
+        Efficient&nbsp <i class="fa fa-bolt" style='color:#9ad6ff;' aria-hidden="true"></i>
+      </p>
 
-              </div>
+    </div>
 
-            </div>
 
-            <div class="row  px-3">
-              <button type="button" class="btn btn-primary my-2 btn-block disabled" name="button">Free on Other Account</button>
-            </div>
+  </div>
 
-          </div>
+  <!-- End of Feature -->
 
+  <br><br><br><br><br><br>
+
+  <!-- Data Visulization -->
+
+  <div class="container-fluid text-left mt-5" style='background-image: url('static/service/images/Ellipse13.png'); background-repeat: no-repeat;min-height: 800px;  background-position:right;'>
+
+    <!-- Large Screen -->
+    <div class="datavisual d-none d-lg-block d-md-none d-sm-none  mx-5" style='border-left: 2px solid red;'>
+      <h3 class=' display-4 my-5 mx-5'>  Visualize Your Data <i class="fas fa-chart-line" style='color:rgb(54, 162, 235);'></i></h3>
+    </div>
+
+
+    <!-- Small Screen -->
+    <div class="datavisual d-lg-none d-md-block d-sm-block " style='border-left: 2px solid red;'>
+      <h3 class='display-6 my-2 mx-3'> Visualize Your Data <i class="fas fa-chart-line" style='color:rgb(54, 162, 235);'></i></h3>
+    </div>
+
+
+    <div class="row pt-5 pt-lg-1 offset-lg-1">
+
+      <div class="col-lg-3 col-sm-12 my-lg-5 my-l">
+        <div class="myChart mt-5" >
+          <canvas id="myChart" height='200px'></canvas>
         </div>
       </div>
 
-      <!-- End Of Account -->
+      <div class="offset-lg-1 col-lg-7 col-sm-12 my-5">
+        <div class="myChart" style="position: relative; height:50vh; max-height:500px; ">
+          <canvas id="myChart2" height='200px'></canvas>
+        </div>
+      </div>
 
-      <br><br><br><br><br><br>
+    </div>
+  </div>
+
+  <!-- End Of Data Visulization -->
+  <br>
+
+  <!-- Start Of Get Connected -->
+  <!-- style='background-image: url(/static/service/images/greyg.jpg)' -->
+  <div class="mx-1  mt-5 text-left" >
+    <br>
+    <!-- Large Screen -->
+    <div class="datavisual d-none d-lg-block d-md-none d-sm-none  mx-5 " style='border-left: 2px solid white;'>
+      <h3 class=' display-4 my-3 mx-5'>Get Connected <i class="fa-brands fa-connectdevelop" style='color: #d600f9;'></i></h3>
+    </div>
 
 
+    <!-- Small Screen -->
+    <div class="datavisual d-lg-none d-md-block d-sm-block" style='border-left: 2px solid white;'>
+      <h3 class='display-6 my-3 mx-2'>Get Connected <i class="fa-brands fa-connectdevelop" style='color: #d600f9;'></i></h3>
+    </div>
+
+    <div class="row ">
+
+      <div class="col-lg-3 offset-lg-2 mx-lg-5 mx-2 text-left px-lg-4 py-5">
+        <img src="/static/service/images/connection.png" style='width: 100%; height:100%;' alt="">
+      </div>
 
 
-      <!-- Start Of Footer -->
-      <div class="footer my-5">
-        <div class="row">
-          <div class="col-lg-4 mx-lg-5">
-            <div class="m-5">
-              <img src="{% static 'service/images/logo.png' %}" class='w-100 ' alt="">
-            </div>
-            <h1 class='display-3 text-white d-none d-lg-block d-md-none d-sm-none' >GLiDE Ceylon</h1>
-
-            <h1 class='display-3 text-white d-lg-none d-md-block d-sm-block' style='font-size:40px;'>GLiDE Ceylon</h1>
-          </div>
-
-          <div class="offset-lg-1 col-lg-6 my-5 mx-lg-5">
+      <div class="connecteddiv  col-lg-7 offset-lg-2 mx-lg-5 mx-2"  id='connecteddiv' onscroll="textAnimate()">
+        <h1 class="ml9">
+          <span class="text-wrapper">
 
             <!-- Large Screen -->
-            <div class='d-none d-lg-block d-md-none d-sm-none' style="min-height:400px">
-              <div class="my-5">
-                <h1 class='h1 text-white'>Estate Management System</h1>
-              </div>
-              <div class="">
-                <p class='lead text-white text-left mx-2' style='font-size:30px; '>
-                  Contact us to get information about estate management systems, and if you need a system on your own, we can provide that too
-                </p>
-              </div>
-
-              <div class="text-left col-lg-5 my-5" style="align-items:left">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Feedback" aria-label="Feedback" aria-describedby="basic-addon2">
-                  <div class="input-group-append">
-                    <button class="btn btn-primary" type="button">Submit</button>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="location my-5">
-                <p class='text-muted text-left '><i class="fa-solid fa-location-dot text-white mx-2 text-underline"></i> Hapugastalawa, Nawalapitiya, Sri Lanka</p>
-              </div>
-            </div>
-
+            <span class="letters display-4 d-none d-lg-block d-md-none d-sm-none" style='font-size:40px; display: inline-block;'>
+              Connect with your Estate, Supplier, Clients and workers and &nbsp notify them of or request what you need.
+            </span>
 
             <!-- Small Screen -->
-            <div class='d-lg-none d-md-block d-sm-block' style="min-height:400px">
-              <div class="my-5">
-                <h1 class='h5 text-white'>  Estate Management System</h1>
-              </div>
-              <div class="mx-3">
-                <p class='lead text-white text-left mx-2' style='font-size:20px; '>
-                  Contact us to get information about estate management systems, and if you need a system on your own, we can provide that too
-                </p>
-              </div>
+            <span class=" display-4 d-lg-none d-md-block d-sm-block" style='font-size:40px; display: inline-block;'>
+              Connect with your Estate, Supplier, Clients and workers and notify them of or request what you need.
+            </span>
+          </span>
+        </h1>
 
-              <div class="text-left col-lg-5 my-5" style="align-items:left">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Feedback" aria-label="Feedback" aria-describedby="basic-addon2">
-                  <div class="input-group-append">
-                    <button class="btn btn-primary" type="button">Submit</button>
-                  </div>
-                </div>
-              </div>
+        <button type="button" class='btn btn-primary my-5' id='' name="button">See How</button>
 
-
-              <div class="location my-3">
-                <p class='text-muted text-center'><i class="fa-solid fa-location-dot text-white mx-2"></i> Hapugastalawa, Nawalapitiya, Sri Lanka</p>
-              </div>
-            </div>
-
-
-
-
-            <div class="my-5 text-lg-right  text-white align-right">
-              <div class="w-100">
-                <div class="d-inline my-5 mx-lg-5 mx-3">
-                  <a href="https://instagram.com/ahzaam3" target="_blank"><i class="fa-brands fa-instagram fa-3x instagram social mx-2" ></i></a>
-                  <a href="#" target="_blank"><i class="fa-brands fa-twitter fa-3x twitter social mx-2" ></i></a>
-                  <a href="https://github.com/Ahzaam" target="_blank"><i class="fa-brands fa-github fa-3x github social mx-2"></i></a>
-                  <a href="https://www.whatsap.com/" target="_blank"><i class="fa-brands fa-whatsapp whatsapp fa-3x"></i></a>
-                </div>
-              </div>
-            </div>
-            <p class='text-white text-lg-right w-100 '>Copyright © GLiDE. Ceylon ® 2021-<span id='year'></span> | GLiDE.Cloud.Launch </p>
-
-          </div>
-        </div>
       </div>
-      <!-- End Of Footer -->
-
-
-
-
-
-       <!-- End Of THe Container -->
     </div>
 
 
 
+  </div>
+
+
+  <!-- End Of Get Connected -->
+
+  <br><br><br><br>
 
 
 
+  <!-- Account Types -->
 
-    <!-- Link Javascript Script Files--><!-- Link Javascript Script Files-->
+  <div class="mx-1  my-5 text-left" >
 
+    <!-- Large Screen -->
 
+    <div class="datavisual d-none d-lg-block d-md-none d-sm-none  mx-5" style='border-left: 2px solid red;'>
+      <h3 class=' display-4 my-5 mx-5'>Account's <i class="account-icon fas fa-users" style='color: #ff009b;'></i></h3>
+    </div>
 
-    <!-- Bootstrap -->
+    <!-- Small Screen -->
+    <div class="datavisual d-lg-none d-md-block d-sm-block" style='border-left: 2px solid red;'>
+      <h3 class='display-6 my-5 mx-2'> Account's <i class="account-icon fas fa-users" style='color: #ff009b;'></i></h3>
+    </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+    <div class="row mx-lg-5 mx-sm-3" id='fec'>
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
+      <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 my-5 offset-lg-1"  id='ac1'>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+        <div onclick="window.location='http://google.com';" >
 
+          <div class="text-center my-5" >
+            <i class="fas fa-industry fa-5x" style='color:rgb(73, 255, 129);'></i>
+            <p class='h3 text-muted'>Tea Factory </p>
+          </div>
 
-    <!-- Font Awesome -->
+          <div class="my-5">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
-    integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+          </div>
 
+        </div>
 
+        <div class="row px-3">
+          <button type="button" class="btn btn-primary my-2 btn-block"  onclick="window.location='http://youtube.com';" name="button">Buy 599,999LKR</button>
+        </div>
 
-    <!-- Chart JS -->
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
-    <!-- Text Animation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-
-    <script src="{% static 'service/js/chart.js' %}"></script>
-    <script src="{% static 'service/js/home.js' %}"></script>
-
+      </div>
 
 
+      <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 my-5 offset-lg-1"  id='ac2'>
+
+        <div onclick="window.location='http://google.com';" >
+
+          <div class="text-center my-5" >
+            <i class="fa-solid fa-truck-fast fa-5x" style='color:rgb(255, 205, 86);'></i>
+            <p class='h3 text-muted'>Factory Supllier</p>
+          </div>
+
+          <div class="my-5">
+
+          </div>
+
+        </div>
+
+        <div class="row px-3">
+          <button type="button" class="btn btn-primary my-2 btn-block"  onclick="window.location='http://youtube.com';" name="button">Buy 9999LKR</button>
+        </div>
+
+      </div>
 
 
-  </body>
-</html>
+
+      <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 offset-lg-1 my-5 "  id='ac3'>
+
+        <div onclick="window.location='http://google.com';">
+
+          <div class="text-center my-5">
+            <i class="fas fa-user fa-5x" style='color:rgb(54, 162, 235);'></i>
+            <p class='h3 text-muted'>Field Owner</p>
+          </div>
+
+          <div class="my-5">
+
+          </div>
+
+        </div>
+
+        <div class="row px-3">
+          <button type="button" class="btn btn-primary my-2 btn-block" name="button">Buy 4999LKR</button>
+        </div>
+
+      </div>
+
+      <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 offset-lg-1 my-5  " id='ac4'>
+
+        <div onclick="window.location='http://google.com';">
+
+          <div class="text-center my-5">
+            <i class="fas fa-digging fa-5x" style='color:rgb(255, 99, 132);'></i>
+            <p class='h3 text-muted'>Worker</p>
+          </div>
+
+          <div class="my-5">
+
+          </div>
+
+        </div>
+
+        <div class="row  px-3">
+          <button type="button" class="btn btn-primary my-2 btn-block disabled" name="button">Free on Other Account</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- End Of Account -->
+
+  <br><br><br><br><br><br>
+  <!-- Start Of Location -->
+
+
+  <div class="container-banner" style=' min-height:500px; ' >
+    <img src='static/service/images/banner.jpg' class='w-100 d-none d-lg-block d-md-none d-sm-none' alt="Banner">
+    <img src='static/service/images/banner-small.jpg' alt="" class='w-100 d-lg-none d-md-block d-sm-block'>
+    <div class="centered d-none d-lg-block d-md-none d-sm-none">
+      <h1 class='display-2'><i class="fa-solid fa-location-dot text-white mx-2 text-underline"></i> Hapugastalawa</h1>
+    </div>
+
+    <div class="centered d-lg-none d-md-block d-sm-block">
+      <h1 class='display-5'><i class="fa-solid fa-location-dot text-white mx-2 text-underline"></i> Hapugastalawa</h1>
+    </div>
+
+  </div>
+
+  <!-- End Of Location -->
+
+
+  <br><br><br><br>
+
+
+
+  {% endblock %}

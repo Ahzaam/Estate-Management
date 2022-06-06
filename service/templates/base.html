@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>GLiDE Ceylon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+{% load static %}
+  <!-- Set Tab Icon -->
+  <link rel="icon" href="{% static 'service/images/logo.png' %}">
+
+  <link rel="stylesheet" href="{% static 'service/css/style.css' %}">
+
+
+  <!-- Bootstrap -->
+
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous">
+
+  <!-- Font Awesome -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+  integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+<body>
+
+<div class="container-fluid" style="text-align:center;">
+    {% block body %}
+
+
+
+    {% endblock %}
+
+    <!-- Start Of Footer -->
+    <div class="footer my-5 text-md-center">
+      <div class="row ">
+        <div class="col-lg-4 mx-lg-5">
+          <div class="m-5">
+            <img src="{% static 'service/images/logo.png' %}" class='w-100 ' alt="">
+          </div>
+          <h1 class='display-3 text-white d-none d-lg-block d-md-none d-sm-none' >GLiDE Ceylon</h1>
+
+          <h1 class='display-3 text-white d-lg-none d-md-block d-sm-block' style='font-size:40px;'>GLiDE Ceylon</h1>
+        </div>
+
+        <div class="offset-lg-1 col-lg-6 my-5 mx-lg-5">
+
+          <!-- Large Screen -->
+          <div class='d-none d-lg-block d-md-none d-sm-none' style="min-height:400px">
+            <div class="my-5">
+              <h1 class='h1 text-white'>Estate Management System</h1>
+            </div>
+            <div class="">
+              <p class='lead text-white text-left mx-2' style='font-size:30px; '>
+                Contact us to get information about estate management systems, and if you need a system on your own, we can provide that too
+              </p>
+            </div>
+
+            <div class="text-left col-lg-5 my-5" style="align-items:left">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Feedback" aria-label="Feedback" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="button">Submit</button>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="location my-5">
+              <p class='text-muted text-left '><i class="fa-solid fa-location-dot text-white mx-2 text-underline"></i> Hapugastalawa, Nawalapitiya, Sri Lanka</p>
+            </div>
+          </div>
+
+
+          <!-- Small Screen -->
+          <div class='d-lg-none d-md-block d-sm-block' style="min-height:400px">
+            <div class="my-5">
+              <h1 class='h5 text-white'>  Estate Management System</h1>
+            </div>
+            <div class="mx-3">
+              <p class='lead text-white text-left mx-2' style='font-size:20px; '>
+                Contact us to get information about estate management systems, and if you need a system on your own, we can provide that too
+              </p>
+            </div>
+
+            <div class="text-left col-lg-5 my-5" style="align-items:left">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Feedback" aria-label="Feedback" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="button">Submit</button>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="location my-3">
+              <p class='text-muted text-center'><i class="fa-solid fa-location-dot text-white mx-2"></i> Hapugastalawa, Nawalapitiya, Sri Lanka</p>
+            </div>
+          </div>
+
+
+
+
+          <div class="my-5 text-lg-right  text-white align-right">
+            <div class="w-100">
+              <div class="d-inline my-5 mx-lg-5 mx-3">
+                <a href="https://instagram.com/ahzaam3" target="_blank"><i class="fa-brands fa-instagram fa-3x instagram social mx-2" ></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-twitter fa-3x twitter social mx-2" ></i></a>
+                <a href="https://github.com/Ahzaam" target="_blank"><i class="fa-brands fa-github fa-3x github social mx-2"></i></a>
+                <a href="https://www.whatsap.com/" target="_blank"><i class="fa-brands fa-whatsapp whatsapp fa-3x"></i></a>
+              </div>
+            </div>
+          </div>
+          <p class='text-white text-lg-right w-100 '>Copyright © GLiDE. Ceylon ® 2021-<span id='year'></span> | GLiDE.Cloud.Launch </p>
+
+        </div>
+      </div>
+    </div>
+    <!-- End Of Footer -->
+
+
+
+
+
+    <!-- End Of THe Container -->
+  </div>
+
+
+
+
+
+
+
+  <!-- Link Javascript Script Files--><!-- Link Javascript Script Files-->
+
+
+
+  <!-- Bootstrap -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+  crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"></script>
+
+
+  <!-- Font Awesome -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
+  integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+  <!-- Chart JS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+  <!-- Text Animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+  <script src="{% static 'service/js/chart.js' %}"></script>
+  <script src="{% static 'service/js/home.js' %}"></script>
+
+
+
+
+
+</body>
+</html>
