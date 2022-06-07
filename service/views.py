@@ -20,5 +20,5 @@ def feedback(request):
     if  request.method == "GET":
         Feedback.objects.create(feedback=str(request.GET.get('feedback')))
 
-        return JsonResponse({'success': 'Feeback Added'}, status=200)
+        return JsonResponse({'success': 'Feedback Added'}, status=200)
     else: return JsonResponse({'success': 'Some thing went wrong. Refresh your page'}, status=400)

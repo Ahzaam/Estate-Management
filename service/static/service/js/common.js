@@ -26,13 +26,11 @@ function postFeedback(feedback){
           url: "/post/user/feedback",
           data: data,
           success: function(data, status){
-            if (status == 200){
-              $(this).html('&nbsp Submit &nbsp')
-              console.log('Successfully posted')
-            }
-            else{
-
-              alert(data.success)
+            if (status == 400){
+            }else{
+              alert(data.success + ' Thanks! for your kindness')
+              $('#feedbacktxtsm').val('')
+              $('#feedbacktxtlg').val('')
             }
           }
         });
