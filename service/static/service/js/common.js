@@ -1,12 +1,27 @@
 $(document).ready(function () {
-  console.log('Loading')
-  $('#feedbackbtnsm').click(function () {
-    $(this).
-  })
 
-function postFeedback(feedback)
-  data = {'feedback': feedback}
-  ajax({
+
+  $('#feedbackbtnsm').click(function () {
+    let feedback = $('#feedbacktxtsm').val()
+    if(feedback != '') {
+      postFeedback(feedback)
+    }
+
+  });
+
+
+  $('#feedbackbtnlg').click(function () {
+    let feedback = $('#feedbacktxtlg').val()
+    if(feedback != '') {
+      postFeedback(feedback)
+    }
+  });
+
+
+
+function postFeedback(feedback){
+  let data = {feedback: feedback}
+  $.ajax({
           type: "GET",
           url: "/post/user/feedback",
           data: data,

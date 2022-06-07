@@ -1,6 +1,5 @@
 $(document).ready(function() {
-  ajx()
-  console.log('ajax')
+
   const date = new Date()
    year = date.getFullYear()
    $('#year').html(year)
@@ -23,7 +22,6 @@ $(window).scroll(function() {
     if (isScrolledIntoView('#fec')) {
       if (inView) { return; }
       inView = true;
-      console.log('')
       myLoop();
     } else {
 
@@ -32,7 +30,6 @@ $(window).scroll(function() {
   });
 
 
-  // console.log('  #ac' + i)
   var i = 1;                  //  set your counter to 1
 
   function myLoop() {         //  create a loop function
@@ -88,12 +85,6 @@ $(window).scroll(function() {
 
   myLoopFeature()
 
-
-  function ajx() {
-    console.log('CleafsiugiuguyIIihisuhviwurgHUIUG')
-
-
-  }
 
 })
 
