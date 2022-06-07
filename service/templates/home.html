@@ -11,22 +11,31 @@
 {% block body %}
 
   <div class=" footer text-center py-5 ">
-    <div class="row mx-2">
-      <div class="col-lg-4 col-md-8 col-sm-11 offset-md-2 offset-lg-1">
+    <div class="row mx-2 text-right">
+      <div class="col-lg-4 col-md-8 col-sm-11 offset-md-2 text-md-center offset-lg-0 ">
 
         <div class="mx-lg-5 mx-2">
           <img src="static/service/images/logo.png" class='w-100 ' alt="">
         </div>
 
-        <div class="display-3 d-lg-none d-md-block d-sm-block  text-white">GLiDE. Ceylon <br><br>
+        <div class="display-3 d-lg-none d-md-block d-sm-block  text-white ">GLiDE. Ceylon
+          <p class="text-white lead mx-3 ">Since 2019</p>
+          <form class="form-inline my-2 my-lg-0" >
+            <a class="btn btn-primary my-2 my-sm-0" href='/auth'>Sign in <i class="fa fa-sign-in"></i>  </a>
+          </form>
+          <br><br>
+
           <div class="lead">Management System</div>
         </div>
       </div>
       <br>
-      <div class="mx-5 text-right">
+      <div class="col-lg-6 mx-2 text-end d-none d-lg-block d-md-none d-sm-none">
         <br><br><br><br><br><br>
-        <h1 class=" text-white ml12 mlf1 d-none d-lg-block d-md-none d-sm-none" width="100%" style="white-space: nowrap;">GLiDE Ceylon</h1>
-        <p class="text-white lead mx-3">Since 2019</p>
+        <h1 class=" text-white text-right ml12 mlf1 "  width="100%" style="white-space: nowrap; ">GLiDE Ceylon</h1>
+        <p class="text-white lead text-left mx-3 display-6" >Since 2019</p>
+        <form class="form-inline my-2 my-lg-0" >
+          <a class="btn btn-primary my-2 mx-3 my-sm-0" href='/auth'>Sign in <i class="fa fa-sign-in"></i>  </a>
+        </form>
       </div>
     </div>
 
@@ -68,7 +77,7 @@
 
   <div class="row" style='background-image: url('static/service/images/Ellipse14.jpg'); background-repeat: no-repeat;'>
 
-    <div class="feature col-lg-3 offset-lg-2 mx-lg-5 mx-2 mt-5 text-left px-lg-4 py-5 ">
+    <div class="feature col-lg-3 offset-lg-2 col-md-4 mx-lg-5 mx-3 mt-5 text-left px-lg-4 col-11 ">
 
       <div class="w-100 text-center my-5">
         <i class="fa-solid fa-circle-check fa-7x my-3" style='color:#16ff0a;' ></i>
@@ -89,17 +98,17 @@
       <br>
     </div>
 
-    <div class="feature col-lg-7 offset-lg-2 mx-lg-5 mx-2 mt-5 text-center">
+    <div class="feature col-lg-7 offset-lg-2 mx-lg-5  col-md-7 col-11 mx-3 mt-5 text-center">
 
       <!-- Large Screen -->
-      <p class='display-1 d-none d-lg-block d-md-none d-sm-none mt-5' style='font-size:120px;'>
+      <p class='display-2 d-none d-lg-block d-md-block d-sm-none mt-5' style='font-size:120px;'>
         Faster &nbsp&nbsp&nbsp<i class="fa-solid fa-person-running " style='color:#14397d;'></i> <br>
         Easier &nbsp&nbsp <i class="fa-solid fa-hands " style='color:#77b5d9;'></i> <br>
         Efficient&nbsp <i class="fa fa-bolt" style='color:#9ad6ff;' aria-hidden="true"></i>
       </p>
 
       <!-- Small Screen -->
-      <p class='display-4 d-lg-none d-md-block d-sm-block mt-5'>
+      <p class='display-4 d-lg-none d-md-none d-sm-block mt-5'>
         Faster &nbsp&nbsp&nbsp<i class="fa-solid fa-person-running " style='color:#14397d;'></i> <br>
         Easier &nbsp&nbsp <i class="fa-solid fa-hands " style='color:#77b5d9;'></i> <br>
         Efficient&nbsp <i class="fa fa-bolt" style='color:#9ad6ff;' aria-hidden="true"></i>
@@ -120,13 +129,13 @@
 
     <!-- Large Screen -->
     <div class="datavisual d-none d-lg-block d-md-none d-sm-none  mx-5" style='border-left: 2px solid red;'>
-      <h3 class=' display-4 my-5 mx-5'>  Visualize Your Data <i class="fas fa-chart-line" style='color:rgb(54, 162, 235);'></i></h3>
+      <h3 class=' display-4 my-5 mx-5  text-start'>  Visualize Your Data </h3>
     </div>
 
 
     <!-- Small Screen -->
     <div class="datavisual d-lg-none d-md-block d-sm-block " style='border-left: 2px solid red;'>
-      <h3 class='display-6 my-2 mx-3'> Visualize Your Data <i class="fas fa-chart-line" style='color:rgb(54, 162, 235);'></i></h3>
+      <h3 class='display-6 my-2 mx-3'> Visualize Your Data</h3>
     </div>
 
 
@@ -150,19 +159,21 @@
   <!-- End Of Data Visulization -->
   <br>
 
+
+
   <!-- Start Of Get Connected -->
   <!-- style='background-image: url(/static/service/images/greyg.jpg)' -->
   <div class="mx-1  mt-5 text-left" >
     <br>
     <!-- Large Screen -->
-    <div class="datavisual d-none d-lg-block d-md-none d-sm-none  mx-5 " style='border-left: 2px solid white;'>
-      <h3 class=' display-4 my-3 mx-5'>Get Connected <i class="fa-brands fa-connectdevelop" style='color: #d600f9;'></i></h3>
+    <div class="datavisual d-none d-lg-block d-md-none d-sm-none  mx-5 " style='border-left: 2px solid red;'>
+      <h3 class=' display-4 my-3 mx-5 text-start'>Get Connected</h3>
     </div>
 
 
     <!-- Small Screen -->
     <div class="datavisual d-lg-none d-md-block d-sm-block" style='border-left: 2px solid white;'>
-      <h3 class='display-6 my-3 mx-2'>Get Connected <i class="fa-brands fa-connectdevelop" style='color: #d600f9;'></i></h3>
+      <h3 class='display-6 my-3 mx-2'>Get Connected </h3>
     </div>
 
     <div class="row ">
@@ -206,20 +217,20 @@
 
   <!-- Account Types -->
 
-  <div class="mx-1  my-5 text-left" >
+  <div class="mx-1  my-5 text-start" >
 
     <!-- Large Screen -->
 
     <div class="datavisual d-none d-lg-block d-md-none d-sm-none  mx-5" style='border-left: 2px solid red;'>
-      <h3 class=' display-4 my-5 mx-5'>Account's <i class="account-icon fas fa-users" style='color: #ff009b;'></i></h3>
+      <h3 class=' display-4 my-5 mx-5'>Account's</h3>
     </div>
 
     <!-- Small Screen -->
     <div class="datavisual d-lg-none d-md-block d-sm-block" style='border-left: 2px solid red;'>
-      <h3 class='display-6 my-5 mx-2'> Account's <i class="account-icon fas fa-users" style='color: #ff009b;'></i></h3>
+      <h3 class='display-6 my-5 mx-2'> Account's </h3>
     </div>
 
-    <div class="row mx-lg-5 mx-sm-3" id='fec'>
+    <div class="row  mx-sm-3" id='fec'>
 
       <div class="featureacc col-lg-2 col-md-5 col-sm-5 offset-sm-1 my-5 offset-lg-1"  id='ac1'>
 
@@ -347,8 +358,8 @@
 
   {% block script %}
 
-    <!-- Home JS -->
-    <script type="text/javascript" src='static/service/js/home.js'></script>
+      <!-- Home JS -->
+      <script type="text/javascript" src='static/service/js/home.js'></script>
 
 
 

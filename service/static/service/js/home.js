@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  ajx()
+  console.log('ajax')
   const date = new Date()
    year = date.getFullYear()
    $('#year').html(year)
@@ -86,8 +88,14 @@ $(window).scroll(function() {
 
   myLoopFeature()
 
-})
 
+  function ajx() {
+    console.log('CleafsiugiuguyIIihisuhviwurgHUIUG')
+
+
+  }
+
+})
 
 
 
