@@ -2,6 +2,12 @@
 
 {%  block title %}GLiDE Ceylon {% endblock %}
 
+{% block stylesheet %}
+
+<link rel="stylesheet" href="static/service/css/style.css">
+
+{% endblock %}
+
 {% block body %}
 
   <div class=" footer text-center py-5 ">
@@ -330,5 +336,26 @@
   <br><br><br><br>
 
 
+
+  {% endblock %}
+
+
+  {% block script %}
+
+    <!-- Home JS -->
+    <script type="text/javascript" src='static/service/js/home.js'></script>
+
+
+
+    <!-- Chart JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <!-- Text Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+    <script src="static/service/js/chart.js"></script>
+    <script src="static/service/js/home.js"></script>
 
   {% endblock %}

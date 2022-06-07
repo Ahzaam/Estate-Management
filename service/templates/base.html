@@ -10,7 +10,6 @@
   <!-- Set Tab Icon -->
   <link rel="icon" href="{% static 'service/images/logo.png' %}">
 
-  <link rel="stylesheet" href="{% static 'service/css/style.css' %}">
 
 
   <!-- Bootstrap -->
@@ -26,6 +25,8 @@
   integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
   crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
+  {% block stylesheet %} {% endblock %}
 
 </head>
 <body>
@@ -178,6 +179,7 @@
 
 
 
+
   <!-- Bootstrap -->
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -199,21 +201,8 @@
   integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
-
-  <!-- Chart JS -->
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
-  <!-- Text Animation -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-
-  <script src="{% static 'service/js/chart.js' %}"></script>
-  <script src="{% static 'service/js/home.js' %}"></script>
-
-
-
+  
+  {% block script %} {% endblock %}
 
 
 </body>
