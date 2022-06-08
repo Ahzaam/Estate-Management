@@ -7,6 +7,9 @@ urlpatterns = [
     path('auth/', views.auth, name='auth'),
     path('about/', views.about, name='about'),
     path('post/user/feedback', views.feedback, name='feedback'),
+    path('auth/user/register', views.register, name='register'),
+    path('auth/user/login', views.login, name='login'),
+    path('auth/user/verify/otp', views.authotp, name='authotp'),
 ]
 
 # urlpatterns += staticfiles_urlpatterns()

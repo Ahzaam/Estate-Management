@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   $('#change1').click(function() {
     $('#formContentregister').show()
     $('#formContentsignin').hide()
@@ -25,27 +26,83 @@ $(document).ready(function() {
   $('#registerbtn').click(function (e) {
     e.preventDefault();
 
-    if($('#regpassword').val().length > 6){
-      if($('#regpassword').val() === $('#checkpassword').val()) {
-        console.log('Password Checked');
+    if($('#nameper').val() != ''){
+      if($('#regpassword').val().length > 6){
 
+        if($('#regpassword').val() === $('#checkpassword').val()) {
+          let data = $('#regform').serialize()
+          if($('#inputcity').val() === '' ||  $('#inputstate').val() === 'Choose...'){
+            if($('#inputcity').val() === ''){
+              $('#inputcity').addClass('is-invalid')
+            }else{
+              $('#inputstate').addClass('is-invalid')
+            }
+          }else{
+            $('#registerbtn').addClass('disabled')
+            $.post({
+              url: '/auth/user/register',
+              data: data,
+              success: function (data, status){
+                console.log(data.status)
+                console.log(status)
+                if(data.status === 202){
+                  $('#otpsec').removeClass('d-none')
+                }
+                if(data.status === 226){
+                  $('#email').addClass('is-invalid')
+                  $('#emailerror').html('Email Already Exist')
+                  $('#registerbtn').removeClass('disabled')
+                }
+              }
+            })
+          }
+
+
+
+        }else{
+          console.log($('#regpassword').val() + "  uhigugyyu" + $('#checkpassword').val())
+          $('#passworderror').html('Password Doesnt Match');
+          $('#regpassword').addClass('is-invalid')
+          $('#checkpassword').addClass('is-invalid')
+        }
 
 
       }else{
-        console.log($('#regpassword').val() + "  uhigugyyu" + $('#checkpassword').val())
-        alert('Password does not match')
-      }
+        $('#passworderror').html('Password is too short')
+        $('#regpassword').addClass('is-invalid')
 
+      }
     }else{
-      $('#regpassword').addClass('is-invalid')
-      
+      $('#nameper').addClass('is-invalid')
     }
 
+    $('#confotpbtn').click(function (e) {
+      e.preventDefault()
+      $('#confotpbtn').addClass('disabled')
+      let otpveri = $('#otpform').serialize()
+      console.log($('#otpform').serialize())
+      $.post({
+        url: '/auth/user/verify/otp',
+        data: otpveri,
+        success: function (data, status){
+          console.log(data.status + ' ' + status)
+          if(data.status === 200 ){
+            name = $('#nameper').val()
+            email = $('#email').val()
+            $('#sucname').html(name)
+            $('#sucemail').html(email)
+            $('#form-container').hide()
+            $('#regredirect').removeClass('d-none')
+          }else{
+            $('#confotp').addClass('is-invalid')
+            $('#confotpbtn').removeClass('disabled')
+          }
+
+        }
+      })
+    })
 
 
-
-    let data = $('#regform').serialize();
-    console.log(data);
   })
 
 })

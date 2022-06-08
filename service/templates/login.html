@@ -25,7 +25,7 @@
 </head>
 <body>
   <!-- <link rel="stylesheet" href="{% static 'service/css/style.css' %}"> -->
-  <div class="container px-lg-5 text-center my-5">
+  <div class="container px-lg-5 text-center my-5" id='form-container'>
     <div id="formContentsignin" class='formContent col-lg-5 offset-lg-3 text-start'>
       <!-- Tabs Titles -->
       <div class="row">
@@ -82,68 +82,105 @@
 
       </div>
 
-      <form class=" form-control " id='regform' novalidate>
-        <div class="row">
-          <div class="my-3 col-md-5">
-            <label for="validationTooltip04" name-'firstname' class="form-label">Name</label>
-            <input type="text" class="form-control" placeholder="Ahzam" name='name' aria-label="name">
-          </div>
-          <div class="my-3 col-md-7">
-            <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" name='email' id="email" placeholder="example@example.com">
-          </div>
-
-          <div class="my-3 col-md-6">
-            <label for="inputPassword4" class="form-label">Password</label>
-            <input type="password" class="form-control" name='regpassword' id="regpassword">
-            <div id="passworderror" class="invalid-feedback">
-              Please choose a username.
+      <div class=" form-control ">
+        <form class="" id='regform' novalidate>
+          {% csrf_token %}
+          <div class="row">
+            <div class="my-3 col-md-5">
+              <label for="validationTooltip04" name-'firstname' class="form-label">Name</label>
+              <input type="text" class="form-control" placeholder="Ahzam" name='name' id='nameper' aria-label="name">
             </div>
+            <div class="my-3 col-md-7">
+              <label for="inputEmail4" class="form-label">Email</label>
+              <input type="email" class="form-control" name='email' id="email" placeholder="example@example.com">
+              <div id='emailerror'  class="invalid-feedback">
+
+              </div>
+            </div>
+
+            <div class="my-3 col-md-6">
+              <label for="inputPassword4" class="form-label">Password</label>
+              <input type="password" class="form-control" name='regpassword' id="regpassword">
+              <div id="passworderror" class="invalid-feedback">
+
+              </div>
+            </div>
+            <div class="my-3 col-md-6">
+              <label for="inputPassword4" class="form-label">Retype Password</label>
+              <input type="password" class="form-control" id="checkpassword">
+            </div>
+
+            <div class="col-md-6">
+              <label for="inputCity" class="form-label">City</label>
+              <input type="text" class="form-control" name='city' id="inputcity">
+              <div  class="invalid-feedback">
+                Enter City
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="inputState" class="form-label">State</label>
+              <select id="inputstate" class="form-select" name='state'>
+                <option selected>Choose...</option>
+
+                <option value="Central">Central</option>
+                <option value="North Central">North Central</option>
+                <option value="North Eastern">North Eastern</option>
+                <option value="North Western">North Western</option>
+                <option value="Sabaragamuwa">Sabaragamuwa</option>
+                <option value="Southern">Southern</option>
+                <option value="Uva">Uva</option>
+                <option value="Western">Western</option>
+
+              </select>
+              <div  class="invalid-feedback">
+                Select a State
+              </div>
+            </div>
+
           </div>
-          <div class="my-3 col-md-6">
-            <label for="inputPassword4" class="form-label">Retype Password</label>
-            <input type="password" class="form-control" id="checkpassword">
+
+
+
+
+          <div class="col-12">
+            <button class="btn btn-primary my-5" type="submit" id='registerbtn'>Register</button>
           </div>
 
-          <div class="col-md-6">
-            <label for="inputCity" class="form-label">City</label>
-            <input type="text" class="form-control" name='city' id="inputCity">
-          </div>
 
-          <div class="col-md-6">
-            <label for="inputState" class="form-label">State</label>
-            <select id="inputState" class="form-select" name='state'>
-              <option selected>Choose...</option>
+        </form>
+        <div class="col-md-12 d-none" id='otpsec'>
+          <label for="" class='form-label text-success'>We have sent a verification code via email. Check your inbox</label>
+          <div class="row">
 
-              <option value="Central">Central</option>
-              <option value="North Central">North Central</option>
-              <option value="North Eastern">North Eastern</option>
-              <option value="North Western">North Western</option>
-              <option value="Sabaragamuwa">Sabaragamuwa</option>
-              <option value="Southern">Southern</option>
-              <option value="Uva">Uva</option>
-              <option value="Western">Western</option>
+            <form id='otpform' >
+              {% csrf_token %}
+              <div class="col-md-5">
+                <input type="text" name="otp" id='confotp' class='form-control  mt-3' placeholder="Enter Code">
+                <div  class="invalid-feedback">
+                  Invalid OTP
+                </div>
+              </div>
+              <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3 mt-3" id='confotpbtn'>Confirm identity</button>
+              </div>
+            </form>
 
-            </select>
           </div>
 
         </div>
-
-
-
-
-        <div class="col-12">
-          <button class="btn btn-primary my-5" type="submit" id='registerbtn'>Register</button>
-        </div>
-        <div class="col-md-12 d-none">
-        <input type="text" name="" class='my-3 form-control col-md-6' placeholder="Enter Code">
-          <label for="" class='form-label text-danger'>We have sent a code via email. Check your inbox</label>
       </div>
-      </form>
-
     </div>
   </div>
 
+
+  <div class="container d-none" id='regredirect'>
+    <div class=" col-lg-8">
+      <h1 class='display-3'>Hi <span id='sucname'></span>!, Account Created <span class='text-success'>Succesfully</span> </h1>
+      <h1 class='display-5'>You can Sign in now as <span class='text-muted' id='sucemail'> </span></h1>
+      <a href="/auth" class="btn btn-primary my-5">Login Now</a>
+    </div>
+  </div>
 
 
 
