@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+
+
+
   $('#change1').click(function() {
     $('#formContentregister').show()
     $('#formContentsignin').hide()
@@ -17,7 +20,25 @@ $(document).ready(function() {
     e.preventDefault();
 
     let data = $('#logform').serialize();
-
+    console.log(data);
+    $.post({
+      url:'/auth/user/login',
+      data: data,
+      success: function (data, status) {
+        if(data.status === 204) {
+          $('#logemailerror').html('Account Doesnt Exist')
+          $('#logemail').addClass('is-invalid')
+        }else if(data.status === 401){
+          $('#logemailerror').html('Email or Password Incorrect')
+          $('#logemail').addClass('is-invalid')
+          $('#logpassword').addClass('is-invalid')
+        }else if(data.status === 200){
+          localStorage.removeItem('glideceylontoken')
+          localStorage.setItem('glideceylontoken', data.token)
+          window.location.href = '/'
+        }
+      }
+    })
 
   })
 

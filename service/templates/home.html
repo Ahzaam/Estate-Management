@@ -10,6 +10,7 @@
 
 {% block body %}
 
+
   <div class=" footer text-center py-5 ">
     <div class="row mx-2 text-right">
       <div class="col-lg-4 col-md-8 col-sm-11 offset-md-2 text-md-center offset-lg-0 ">
@@ -20,8 +21,8 @@
 
         <div class="display-3 d-lg-none d-md-block d-sm-block  text-white ">GLiDE. Ceylon
           <p class="text-white lead mx-3 ">Since 2019</p>
-          <form class="form-inline my-2 my-lg-0" >
-            <a class="btn btn-primary my-2 my-sm-0" href='/auth'>Sign in <i class="fa fa-sign-in"></i>  </a>
+          <form class="form-inline my-2 my-lg-0 d-none" id='signinpathbtn2'>
+            <a class="btn btn-primary my-2 my-sm-0" href='/auth' >Sign in <i class="fa fa-sign-in"></i>  </a>
           </form>
           <br><br>
 
@@ -29,11 +30,11 @@
         </div>
       </div>
       <br>
-      <div class="col-lg-6 mx-2 text-end d-none d-lg-block d-md-none d-sm-none">
+      <div class="col-lg-6 mx-2 text-end d-none d-lg-block d-md-none d-sm-none" id='logedout'>
         <br><br><br><br><br><br>
         <h1 class=" text-white text-right ml12 mlf1 "  width="100%" style="white-space: nowrap; ">GLiDE Ceylon</h1>
         <p class="text-white lead text-left mx-3 display-6" >Since 2019</p>
-        <form class="form-inline my-2 my-lg-0" >
+        <form class="form-inline my-2 my-lg-0 d-none" id='signinpathbtn'>
           <a class="btn btn-primary my-2 mx-3 my-sm-0" href='/auth'>Sign in <i class="fa fa-sign-in"></i>  </a>
         </form>
       </div>
@@ -42,7 +43,7 @@
 
   </div>
 
-
+  {% csrf_token %}
   <!-- 3 Benefit's -->
 
   <div class="wrapper mx-lg-5 px-lg-5">

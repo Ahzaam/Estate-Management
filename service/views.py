@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
-from . models import Feedback, tempUser, Users
+from . models import Feedback, tempUser, Users, AutoLoginToken
+import uuid
+
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import check_password
 
 
 # Mail Settings
@@ -28,6 +32,30 @@ def feedback(request):
     else: return JsonResponse({'success': 'Some thing went wrong. Refresh your page'}, status=400)
 
 def login(request):
+
+
+    if request.method == 'POST':
+        email = request.POST.get('email')
+
+        if Users.objects.filter(email=email).exists():
+            data = Users.objects.get(email=email)
+
+            if check_password(request.POST.get('password'), data.password):
+                token = uuid.uuid4()
+                AutoLoginToken.objects.create(token=token, email=email, name=data.name)
+                return JsonResponse({'status': 200, 'name':data.name, 'email': email, 'token': token}, status=200)
+
+            else:
+                return JsonResponse({'status': 401}, status=201)
+        else:
+            return JsonResponse({'status': 204}, status=201)
+    return JsonResponse({'status': 400}, status=400)
+
+    del email, data, token
+
+
+
+
     return 0
 
 
@@ -78,7 +106,11 @@ def authotp(request):
 
             tempUserData = tempUser.objects.get(otp=request.session['otp'])
             tempUser.objects.get(otp=request.session['otp']).delete()
-            Users.objects.create(name=tempUserData.name, email=tempUserData.email, password=tempUserData.password, city=tempUserData.city, state=tempUserData.state)
+
+            password = make_password(tempUserData.password)
+
+
+            Users.objects.create(name=tempUserData.name, email=tempUserData.email, password=password, city=tempUserData.city, state=tempUserData.state)
             name = request.session['name']
             subject = 'Welcome to GLiDE Ceylon'
             message = f'Thanks {name},\nYour Successfully Created acount in GLiDE Ceylon\n '
@@ -96,3 +128,30 @@ def authotp(request):
             return JsonResponse({'status': 200}, status=200)
         return JsonResponse({'status': 400}, status=400)
     return JsonResponse({'status': 404}, status=404)
+
+
+def autoLoginWithToken(request):
+    token = request.POST.get('token')
+    if AutoLoginToken.objects.filter(token=token).exists():
+        data = AutoLoginToken.objects.get(token=token)
+        email = data.email
+        name = data.name
+        return JsonResponse({'status': 200, 'name': name, 'email': email}, status=200)
+    else:
+        return JsonResponse({'status': 404}, status=201)
+
+    del data, email, name, token
+
+
+def logout(request):
+    if request.method == 'GET':
+        token = request.GET.get('token')
+        if AutoLoginToken.objects.filter(token=token).exists():
+            AutoLoginToken.objects.get(token=token).delete()
+            print('Deleted token')
+            return redirect('/')
+        else:
+            print('Does not exist')
+            return redirect('/')
+            return JsonResponse({'status': 404}, status=404)
+    else: return JsonResponse({'status': 404}, status=404)

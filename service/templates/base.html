@@ -34,7 +34,7 @@
   <div class="container-fluid" style="text-align:center;">
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark " style="background-color: #e3f2fd;">
 
       <a class="navbar-brand mx-3" href="/" >
         <img src='/static/service/images/logo.png' width="30" height="30" class="d-inline-block align-top" alt="234">
@@ -62,6 +62,18 @@
 
         </ul>
 
+
+
+      <li class="nav-item dropdown d-none" id='logedintab'>
+          <button class="btn btn-outline-success rounded-circle px-3 py-2" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
+
+          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+            <li><a class="dropdown-item"  id='navlogedname'></a></li>
+            <li><a class="dropdown-item"id='navlogedemail'></a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li id='navlogout'></li>
+          </ul>
+        </li>
 
 
       </nav>

@@ -45,17 +45,25 @@
 
       <!-- Login Form -->
       <form class="form-control" id='logform'>
+        {% csrf_token %}
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Email address</label>
           <input type="email" class="form-control" name='email' id='logemail' placeholder="Email">
+          <div id='logemailerror'  class="invalid-feedback">
+
+          </div>
         </div>
 
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Password</label>
-          <input type="password" class="form-control" name='password' placeholder="Password">
+          <input type="password" class="form-control" id='logpassword' name='password' placeholder="Password">
+
         </div>
 
-        <input class="btn btn-primary my-5" type="submit" id='loginbtn' value="Login">
+
+        <div class="text-center">
+          <input class="btn btn-primary my-5" type="submit" id='loginbtn' value="Login">
+        </div>
       </form>
 
     </div>
