@@ -97,8 +97,6 @@ def register(request):
 def authotp(request):
     if request.method == 'POST':
         sesOtp = int(request.session['otp'])
-        print(sesOtp)
-        print(request.POST.get('otp'))
 
         if sesOtp == int(request.POST.get('otp')):
 
@@ -143,7 +141,7 @@ def autoLoginWithToken(request):
             email = data.email
             name = data.name
 
-            return JsonResponse({'status': 200, 'name': name, 'email': email}, status=200)
+            return JsonResponse({'status': 200, 'name': name, 'email': email, 'userid': userid}, status=200)
         else:
             return JsonResponse({'status': 500}, status=500)
 
@@ -158,8 +156,8 @@ def autoLoginWithToken(request):
         else:
             return JsonResponse({'status': 404}, status=201)
 
-        del data, email, name, token, userid
-
+        del token
+    del data, email, name, userid
 
 
 def logout(request):
