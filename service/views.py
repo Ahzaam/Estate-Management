@@ -134,6 +134,7 @@ def autoLoginWithToken(request):
     # request.session['userid'] = data.uuid
 
     if request.session.get('authenticated'):
+        print(request.session['authenticated'])
         userid = request.session['userid']
         if Users.objects.filter(uuid=userid).exists():
 
@@ -143,7 +144,7 @@ def autoLoginWithToken(request):
 
             return JsonResponse({'status': 200, 'name': name, 'email': email, 'userid': userid}, status=200)
         else:
-            return JsonResponse({'status': 500}, status=500)
+            return JsonResponse({'status': 404}, status=201)
 
     else:
         token = request.POST.get('token')
@@ -166,12 +167,14 @@ def logout(request):
         token = request.GET.get('token')
         if AutoLoginToken.objects.filter(token=token).exists():
             AutoLoginToken.objects.get(token=token).delete()
-            request.session['authenticated'] = False
+            del request.session['authenticated']
             del request.session['userid']
-
+            request.session.modified = True
             return redirect('/')
         else:
-            print('Does not exist')
+            del request.session['authenticated']
+            del request.session['userid']
+
             return redirect('/')
             return JsonResponse({'status': 404}, status=404)
     else: return JsonResponse({'status': 404}, status=404)
