@@ -45,6 +45,16 @@ def login(request):
                 request.session['userid'] = data.uuid
                 token = uuid.uuid4()
                 AutoLoginToken.objects.create(token=token, email=email, name=data.name)
+                device = request.META['HTTP_USER_AGENT']
+                subject = 'GLiDE Ceylon Login'
+                message = f'Hi {data.name},\nRecent login detected for your account.\n{device}'
+                email_from = settings.EMAIL_HOST_USER
+                recipient_list = [email, ]
+
+
+                send_mail( subject, message , email_from, recipient_list )
+
+
                 return JsonResponse({'status': 200, 'name':data.name, 'email': email, 'token': token, 'userid': data.uuid}, status=200)
 
             else:

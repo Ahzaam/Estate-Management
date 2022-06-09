@@ -8,7 +8,6 @@ def account(request):
     return render(request, 'account/base.html')
 
 def myaccount(request, id):
-    print(request.META['HTTP_USER_AGENT'])
     if request.session.get('userid') == id:
         data = Users.objects.get(uuid=id)
         name = data.name
