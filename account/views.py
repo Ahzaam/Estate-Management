@@ -8,13 +8,18 @@ def account(request):
     return render(request, 'account/base.html')
 
 def myaccount(request, id):
+    print(request.META['HTTP_USER_AGENT'])
     if request.session.get('userid') == id:
-        return render(request, 'account/home.html', {'id': id})
+        data = Users.objects.get(uuid=id)
+        name = data.name
+        return render(request, 'account/home.html', {'id': id, 'name': name})
     elif Users.objects.filter(uuid=id).exists():
         email = Users.objects.get(uuid=id).email
+
         return render(request, 'account/confirm.html', {'email': email})
     else:
         return JsonResponse({'Error': 'User Not Found'}, status=404)
+
 
 def accountlogin(request):
     if request.method == 'POST':

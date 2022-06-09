@@ -73,7 +73,7 @@ def register(request):
             return JsonResponse({'status': 226}, status=226)
 
         else:
-            otp = random.randint(12423, 99999)
+            otp = random.randint(124234, 999999)
             request.session['otp'] = otp
 
             subject = 'GLiDE Ceylon Verification'
@@ -137,7 +137,7 @@ def autoLoginWithToken(request):
         print(request.session['authenticated'])
         userid = request.session['userid']
         if Users.objects.filter(uuid=userid).exists():
-
+            print('Got UID')
             data = Users.objects.get(uuid=userid)
             email = data.email
             name = data.name

@@ -13,6 +13,7 @@ $(document).ready(function () {
         $('#signinpathbtn').removeClass('d-none')
         $('#signinpathbtn2').removeClass('d-none')
       }else if(data.status === 200){
+        let userid = data.userid
         let name = data.name
         let email = data.email
         let fstletter = name.charAt(0).toUpperCase()
@@ -22,6 +23,7 @@ $(document).ready(function () {
         $('#navlogedemail').html(email)
         $('#navlogout').html("<a class='dropdown-item text-danger' href='/auth/user/logout?token="+token+"' >Log Out</a>")
         $('#navmyacc').removeClass('d-none')
+        $('#navmyacchref').attr('href', '/account/' + userid)
         $('#logedintab').removeClass('d-none')
       }
     }
