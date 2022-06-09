@@ -21,6 +21,7 @@ $(document).ready(function () {
         $('#navlogedname').html(name)
         $('#navlogedemail').html(email)
         $('#navlogout').html("<a class='dropdown-item text-danger' href='/auth/user/logout?token="+token+"' >Log Out</a>")
+        $('#navmyacc').removeClass('d-none')
         $('#logedintab').removeClass('d-none')
       }
     }
