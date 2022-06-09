@@ -41,9 +41,11 @@ def login(request):
             data = Users.objects.get(email=email)
 
             if check_password(request.POST.get('password'), data.password):
+                request.session['authenticated'] = True
+                request.session['userid'] = data.uuid
                 token = uuid.uuid4()
                 AutoLoginToken.objects.create(token=token, email=email, name=data.name)
-                return JsonResponse({'status': 200, 'name':data.name, 'email': email, 'token': token}, status=200)
+                return JsonResponse({'status': 200, 'name':data.name, 'email': email, 'token': token, 'userid': data.uuid}, status=200)
 
             else:
                 return JsonResponse({'status': 401}, status=201)
@@ -53,10 +55,6 @@ def login(request):
 
     del email, data, token
 
-
-
-
-    return 0
 
 
 
@@ -133,24 +131,46 @@ def authotp(request):
 
 
 def autoLoginWithToken(request):
-    token = request.POST.get('token')
-    if AutoLoginToken.objects.filter(token=token).exists():
-        data = AutoLoginToken.objects.get(token=token)
-        email = data.email
-        name = data.name
-        return JsonResponse({'status': 200, 'name': name, 'email': email}, status=200)
-    else:
-        return JsonResponse({'status': 404}, status=201)
 
-    del data, email, name, token
+    # request.session['authenticated'] = True
+    # request.session['userid'] = data.uuid
+
+    if request.session.get('authenticated'):
+        userid = request.session['userid']
+        if Users.objects.filter(uuid=userid).exists():
+
+            data = Users.objects.get(uuid=userid)
+            email = data.email
+            name = data.name
+
+            return JsonResponse({'status': 200, 'name': name, 'email': email}, status=200)
+        else:
+            return JsonResponse({'status': 500}, status=500)
+
+    else:
+        token = request.POST.get('token')
+        if AutoLoginToken.objects.filter(token=token).exists():
+            data = AutoLoginToken.objects.get(token=token)
+            email = data.email
+            name = data.name
+
+            return JsonResponse({'status': 200, 'name': name, 'email': email}, status=200)
+        else:
+            return JsonResponse({'status': 404}, status=201)
+
+        del data, email, name, token, userid
+
 
 
 def logout(request):
+
     if request.method == 'GET':
         token = request.GET.get('token')
         if AutoLoginToken.objects.filter(token=token).exists():
             AutoLoginToken.objects.get(token=token).delete()
-            print('Deleted token')
+            request.session['authenticated'] = False
+            del request.session['userid']
+
             return redirect('/')
         else:
             print('Does not exist')

@@ -34,6 +34,7 @@ class tempUser(models.Model):
 
 class AutoLoginToken(models.Model):
     token = models.CharField(max_length=50)
+    userid = models.CharField(max_length=40)
     email = models.EmailField(max_length=50)
     name = models.CharField(max_length=20)
     def __str__(self):
