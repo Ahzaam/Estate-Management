@@ -5,7 +5,7 @@ import uuid
 
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.hashers import check_password
-
+from django.contrib.sites.shortcuts import get_current_site
 
 # Mail Settings
 from django.conf import settings
@@ -16,13 +16,13 @@ import random
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'service/home.html')
 
 def auth(request):
-    return render(request, 'login.html')
+    return render(request, 'service/login.html')
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'service/about.html')
 
 def feedback(request):
     if  request.method == "GET":
@@ -109,20 +109,22 @@ def authotp(request):
 
             password = make_password(tempUserData.password)
 
+            useruuid = uuid.uuid4()
 
-            Users.objects.create(name=tempUserData.name, email=tempUserData.email, password=password, city=tempUserData.city, state=tempUserData.state)
+            Users.objects.create(name=tempUserData.name, email=tempUserData.email, password=password, city=tempUserData.city, state=tempUserData.state, uuid=useruuid)
             name = request.session['name']
             subject = 'Welcome to GLiDE Ceylon'
-            message = f'Thanks {name},\nYour Successfully Created acount in GLiDE Ceylon\n '
+            message = f'Thanks {name},\nYour Successfully Created acount in GLiDE Ceylon\nyour account will be available at \nhttps://{get_current_site(request).domain}/account/{useruuid}'
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [ request.session['email'], 'fawmeeahzam123@gmail.com']
+
 
             send_mail( subject, message , email_from, recipient_list )
 
             del request.session['otp']
             del request.session['name']
             del request.session['email']
-            del name
+            del name, useruuid
             del tempUserData
 
             return JsonResponse({'status': 200}, status=200)

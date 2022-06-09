@@ -10,6 +10,8 @@ class Feedback(models.Model):
             return self.feedback
 
 class Users(models.Model):
+
+    uuid = models.CharField(max_length=40)
     name = models.CharField(max_length=20)
     email = models.EmailField(max_length=50)
     password = models.CharField(max_length=150)
@@ -36,3 +38,9 @@ class AutoLoginToken(models.Model):
     name = models.CharField(max_length=20)
     def __str__(self):
         return self.token
+
+class Licence(models.Model):
+    accounts = [('Estate', 'estate'), ('Supplier', 'supplier'), ('Feildowner', 'feildowner'), ('Null', 'null')]
+    userid = models.CharField(max_length=40, unique=True)
+    acounttype = models.CharField(max_length=10, choices=accounts, default='Null')
+    license = models.CharField(max_length=50, unique=True)

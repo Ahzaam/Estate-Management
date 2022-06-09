@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['estatemanagements.herokuapp.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'account.apps.AccountConfig',
     'service.apps.ServiceConfig',
     'django.contrib.admin',
     'django.contrib.auth',
