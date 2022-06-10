@@ -13,7 +13,7 @@ class Users(models.Model):
 
     uuid = models.CharField(max_length=40)
     name = models.CharField(max_length=20)
-    email = models.EmailField(max_length=50)
+    email = models.EmailField(max_length=50, unique=True)
     password = models.CharField(max_length=150)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=15)

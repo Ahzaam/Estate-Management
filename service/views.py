@@ -10,32 +10,24 @@ from django.contrib.sites.shortcuts import get_current_site
 import os
 
 
-# Mail Settings
+# Text Mail Settings
 from django.conf import settings
 from django.core.mail import send_mail
 import random
 
+# HTML Mail
+
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
 
 # Create your views here.
 
-def myadmin(request):
-    return render(request, 'service/myadmin.html')
-
-
-def download_file(request):
-
-    file_path = os.path.join(settings.MEDIA_ROOT, 'db.sqlite3')
-    if os.path.exists(file_path):
-        with open(file_path, 'rb') as fh:
-            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
-            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
-            return response
-
-
-
-
 
 def home(request):
+    # htmlmail(request, name , content, email, url)
+    # htmlmail()
     return render(request, 'service/home.html')
 
 def auth(request):
@@ -64,7 +56,7 @@ def login(request):
                 request.session['authenticated'] = True
                 request.session['userid'] = data.uuid
                 token = uuid.uuid4()
-                AutoLoginToken.objects.create(token=token, email=email, name=data.name)
+                AutoLoginToken.objects.create(token=token, email=email, name=data.name, userid=data.uuid)
                 device = request.META['HTTP_USER_AGENT']
                 subject = 'GLiDE Ceylon Login'
                 message = f'Hi {data.name},\nRecent login detected for your account.\n{device}'
@@ -73,7 +65,7 @@ def login(request):
 
 
                 send_mail( subject, message , email_from, recipient_list )
-
+                del subject, message, email_from, recipient_list
 
                 return JsonResponse({'status': 200, 'name':data.name, 'email': email, 'token': token, 'userid': data.uuid}, status=200)
 
@@ -138,14 +130,17 @@ def authotp(request):
             useruuid = uuid.uuid4()
 
             Users.objects.create(name=tempUserData.name, email=tempUserData.email, password=password, city=tempUserData.city, state=tempUserData.state, uuid=useruuid)
+
+            url = f'https://{get_current_site(request).domain}/account/{useruuid}'
+
             name = request.session['name']
-            subject = 'Welcome to GLiDE Ceylon'
-            message = f'Thanks {name},\nYour Successfully Created acount in GLiDE Ceylon\nyour account will be available at \nhttps://{get_current_site(request).domain}/account/{useruuid}'
-            email_from = settings.EMAIL_HOST_USER
-            recipient_list = [ request.session['email'], 'fawmeeahzam123@gmail.com']
+            # subject = 'Welcome to GLiDE Ceylon'
+            # message = f'Thanks {name},\nYour Successfully Created acount in GLiDE Ceylon\nyour account will be available at \n'
+            # email_from = settings.EMAIL_HOST_USER
+            # recipient_list = [ , 'fawmeeahzam123@gmail.com']
 
-
-            send_mail( subject, message , email_from, recipient_list )
+            htmlmail(url, name, request.session['email'])
+            # send_mail( subject, message , email_from, recipient_list )
 
             del request.session['otp']
             del request.session['name']
@@ -164,14 +159,14 @@ def autoLoginWithToken(request):
     # request.session['userid'] = data.uuid
 
     if request.session.get('authenticated'):
-        print(request.session['authenticated'])
+
         userid = request.session['userid']
         if Users.objects.filter(uuid=userid).exists():
-            print('Got UID')
+
             data = Users.objects.get(uuid=userid)
             email = data.email
             name = data.name
-
+            print('kguyfu')
             return JsonResponse({'status': 200, 'name': name, 'email': email, 'userid': userid}, status=200)
         else:
             return JsonResponse({'status': 404}, status=201)
@@ -183,8 +178,9 @@ def autoLoginWithToken(request):
             email = data.email
             name = data.name
 
-            return JsonResponse({'status': 200, 'name': name, 'email': email}, status=200)
+            return JsonResponse({'status': 200, 'name': name, 'email': email, 'userid':data.userid}, status=200)
         else:
+
             return JsonResponse({'status': 404}, status=201)
 
         del token
@@ -199,7 +195,6 @@ def logout(request):
             AutoLoginToken.objects.get(token=token).delete()
             del request.session['authenticated']
             del request.session['userid']
-            request.session.modified = True
             return redirect('/')
         else:
             del request.session['authenticated']
@@ -208,3 +203,39 @@ def logout(request):
             return redirect('/')
             return JsonResponse({'status': 404}, status=404)
     else: return JsonResponse({'status': 404}, status=404)
+
+
+
+
+def htmlmail(homeurl, name, toemail):
+
+    content = render_to_string('service/mail.html', {'name': name, 'email': toemail, 'url': homeurl})
+    text_content = strip_tags(content)
+    email = EmailMultiAlternatives(
+        # Subject
+        'Welcome to GLiDE Ceylon',
+        # Content
+        text_content,
+        # From Address
+        settings.EMAIL_HOST_USER,
+        # Recipients
+        [toemail]
+    )
+    # send email
+
+    email.attach_alternative(content, 'text/html')
+    email.send()
+
+
+def myadmin(request):
+    return render(request, 'service/myadmin.html')
+
+
+def download_file(request):
+
+    file_path = os.path.join(settings.MEDIA_ROOT, 'db.sqlite3')
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
