@@ -11,7 +11,9 @@ urlpatterns = [
     path('auth/user/login', views.login, name='login'),
     path('auth/user/logout', views.logout, name='logout'),
     path('auth/user/verify/otp', views.authotp, name='authotp'),
-    path('auth/user/verify/token', views.autoLoginWithToken, name='autoLogin')
+    path('auth/user/verify/token', views.autoLoginWithToken, name='autoLogin'),
+    path('download/backup_database/please', views.download_file),
+    path('myadmin/', views.myadmin),
 ]
 
 # urlpatterns += staticfiles_urlpatterns()

@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from . models import Feedback, tempUser, Users, AutoLoginToken
 import uuid
 
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.hashers import check_password
 from django.contrib.sites.shortcuts import get_current_site
+
+import os
+
 
 # Mail Settings
 from django.conf import settings
@@ -14,6 +17,23 @@ import random
 
 
 # Create your views here.
+
+def myadmin(request):
+    return render(request, 'service/myadmin.html')
+
+
+def download_file(request):
+
+    file_path = os.path.join(settings.MEDIA_ROOT, 'db.sqlite3')
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+
+
+
+
 
 def home(request):
     return render(request, 'service/home.html')
