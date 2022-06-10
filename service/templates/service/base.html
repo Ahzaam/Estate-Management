@@ -71,23 +71,27 @@
           <li class="nav-item mx-3">
             <a class="nav-link" href="/about"><i class="fa-solid fa-user-gear"></i> About Us<span class="sr-only">(current)</span></a>
           </li>
+          <li class="nav-item dropdown d-none mx-lg-5" id='logedintab'>
+              <button class="btn btn-outline-success rounded-circle px-3 py-2" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
 
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item"  id='navlogedname'></a></li>
+                <li><a class="dropdown-item"id='navlogedemail'></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li id='navlogout'></li>
+              </ul>
+            </li>
 
+            {% if request.user.is_superuser %}
+            <a href='/myadmin' type="button" class="btn btn-primary mx-3" name="button">Site Admin</a>
+            <a href='/admin' type="button" class="btn btn-danger " name="button">DB Admin</a>
+            {% endif %}
 
         </ul>
 
 
 
-      <li class="nav-item dropdown d-none" id='logedintab'>
-          <button class="btn btn-outline-success rounded-circle px-3 py-2" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
 
-          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item"  id='navlogedname'></a></li>
-            <li><a class="dropdown-item"id='navlogedemail'></a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li id='navlogout'></li>
-          </ul>
-        </li>
 
 
       </nav>
