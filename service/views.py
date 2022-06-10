@@ -26,8 +26,7 @@ from django.utils.html import strip_tags
 
 
 def home(request):
-    # htmlmail(request, name , content, email, url)
-    # htmlmail()
+
     return render(request, 'service/home.html')
 
 def auth(request):
@@ -228,14 +227,21 @@ def htmlmail(homeurl, name, toemail):
 
 
 def myadmin(request):
-    return render(request, 'service/myadmin.html')
-
+    if request.user.is_superuser:
+        data = Feedback.objects.all()
+        return render(request, 'service/myadmin.html', {'feedback': data})
+    else:
+        return JsonResponse({'status': 'Unknown user'})
 
 def download_file(request):
+    if request.user.is_superuser:
+        print(request.user)
+        file_path = os.path.join(settings.MEDIA_ROOT, 'db.sqlite3')
+        if os.path.exists(file_path):
+            with open(file_path, 'rb') as fh:
+                response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+                response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+                return response
+    else:
 
-    file_path = os.path.join(settings.MEDIA_ROOT, 'db.sqlite3')
-    if os.path.exists(file_path):
-        with open(file_path, 'rb') as fh:
-            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
-            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
-            return response
+        return JsonResponse({'status': 'Unknown user'})

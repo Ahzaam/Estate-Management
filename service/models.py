@@ -4,6 +4,7 @@ from django.db import models
 
 
 class Feedback(models.Model):
+    feebackid = models.AutoField(primary_key=True)
     feedback = models.CharField(max_length=50)
     viewed = models.BooleanField(default=False)
     def __str__(self):
