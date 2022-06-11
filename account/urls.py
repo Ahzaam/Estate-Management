@@ -6,3 +6,4 @@ urlpatterns = [
     path('<str:id>/', views.myaccount, name='GetAccount'),
     path('id/confirm/password', views.accountlogin, name='Account')
 ]
+handler404 = views.page_not_found_view

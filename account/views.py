@@ -5,7 +5,12 @@ from django.contrib.auth.hashers import check_password
 # Create your views here.
 
 def account(request):
-    return render(request, 'account/base.html')
+    if request.session.get('authenticated'):
+        userid = request.session.get('userid')
+        return redirect(f'/account/{userid}')
+    else:
+        return redirect('/auth')
+    del userid
 
 def myaccount(request, id):
     if request.session.get('userid') == id:
@@ -17,7 +22,7 @@ def myaccount(request, id):
 
         return render(request, 'account/confirm.html', {'email': email})
     else:
-        return JsonResponse({'Error': 'User Not Found'}, status=404)
+        return redirect('sorry/user.not.found')
 
 
 def accountlogin(request):
@@ -40,3 +45,8 @@ def accountlogin(request):
         return JsonResponse({'status': 400}, status=400)
 
     del email, data, token
+
+
+
+def page_not_found_view(request, exception):
+    return render(request, '404.html', status=404)

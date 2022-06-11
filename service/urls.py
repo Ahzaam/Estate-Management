@@ -15,5 +15,4 @@ urlpatterns = [
     path('download/backup_database/please', views.download_file),
     path('myadmin/', views.myadmin),
 ]
-
-# urlpatterns += staticfiles_urlpatterns()
+handler404 = views.page_not_found_view
