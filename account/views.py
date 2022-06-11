@@ -22,7 +22,7 @@ def myaccount(request, id):
 
         return render(request, 'account/confirm.html', {'email': email})
     else:
-        return redirect('sorry/user.not.found')
+        return redirect('User/Not/Found')
 
 
 def accountlogin(request):
