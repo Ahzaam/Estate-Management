@@ -26,7 +26,6 @@ from django.utils.html import strip_tags
 
 
 def home(request):
-
     return render(request, 'service/home.html')
 
 def auth(request):
@@ -165,7 +164,7 @@ def autoLoginWithToken(request):
             data = Users.objects.get(uuid=userid)
             email = data.email
             name = data.name
-            print('kguyfu')
+
             return JsonResponse({'status': 200, 'name': name, 'email': email, 'userid': userid}, status=200)
         else:
             return JsonResponse({'status': 404}, status=201)
