@@ -1,6 +1,6 @@
 asgiref==3.5.2
 colorama==0.4.4
-Django==4.0.5
+Django
 gunicorn==20.1.0
 sqlparse==0.4.2
 tzdata==2022.1
