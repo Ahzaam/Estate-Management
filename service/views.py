@@ -97,7 +97,7 @@ def register(request):
             request.session['otp'] = otp
 
             subject = 'GLiDE Ceylon Verification'
-            message = f'Hi {name}, Your GLiDE Ceylon verication code is. \nCode: {otp}'
+            message = f'Hi {name}, Your GLiDE Ceylon verication code is. \nCode: {otp}\n\nhttps://{get_current_site(request).domain}'
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [email, ]
 
