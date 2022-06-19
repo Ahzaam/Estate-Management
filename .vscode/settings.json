@@ -7,5 +7,7 @@
         "test_*.py"
     ],
     "python.testing.pytestEnabled": false,
-    "python.testing.unittestEnabled": true
+    "python.testing.unittestEnabled": true,
+    "appService.defaultWebAppToDeploy": "/subscriptions/b7edd8c0-b553-44be-9eea-9b1d6caa9bc5/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/glide",
+    "appService.deploySubpath": "."
 }

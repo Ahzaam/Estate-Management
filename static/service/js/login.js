@@ -1,8 +1,5 @@
 $(document).ready(function() {
 
-
-
-
   $('#change1').click(function() {
     $('#formContentregister').show()
     $('#formContentsignin').hide()
