@@ -234,7 +234,6 @@ def myadmin(request):
 
 def download_file(request):
     if request.user.is_superuser:
-        print(request.user)
         file_path = os.path.join(settings.MEDIA_ROOT, 'db.sqlite3')
         if os.path.exists(file_path):
             with open(file_path, 'rb') as fh:
