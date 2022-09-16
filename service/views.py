@@ -153,9 +153,6 @@ def authotp(request):
 
 def autoLoginWithToken(request):
 
-    # request.session['authenticated'] = True
-    # request.session['userid'] = data.uuid
-
     if request.session.get('authenticated'):
 
         userid = request.session['userid']
