@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#dzw!twqd2$+pjtj(97fspp*i*g3x3$g+-rtak+pomz=()rniy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['clglide.azurewebsites.net', 'estatemanagements.herokuapp.com', '127.0.0.1', 'estate-management-production.up.railway.app', 'teaestate.up.railway.app']
 
