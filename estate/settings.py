@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#dzw!twqd2$+pjtj(97fspp*i*g3x3$g+-rtak+pomz=()rniy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['clglide.azurewebsites.net', 'estatemanagements.herokuapp.com', '127.0.0.1', 'estate-management-production.up.railway.app']
+ALLOWED_HOSTS = ['clglide.azurewebsites.net', 'estatemanagements.herokuapp.com', '127.0.0.1', 'estate-management-production.up.railway.app', '.up.railway.app']
 
 
 # Application definition
@@ -125,9 +125,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 # MEDIA_URL = '/media/'
-
-STATIC_ROOT = 'static/'
-
+STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # #
 # STATICFILES_DIRS = [
 #     BASE_DIR / "service/static/",
