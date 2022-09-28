@@ -12,7 +12,7 @@ import os
 
 # Text Mail Settings
 from django.conf import settings
-from django.core.mail import send_mail
+# from django.core.mail import send_mail
 import random
 
 # HTML Mail
@@ -62,7 +62,7 @@ def login(request):
                 recipient_list = [email, ]
 
 
-                send_mail( subject, message , email_from, recipient_list )
+                # send_mail( subject, message , email_from, recipient_list )
                 del subject, message, email_from, recipient_list
 
                 return JsonResponse({'status': 200, 'name':data.name, 'email': email, 'token': token, 'userid': data.uuid}, status=200)
@@ -102,8 +102,10 @@ def register(request):
             recipient_list = [email, ]
 
             tempUser.objects.create(otp=otp, name=name, email=email, password=request.POST.get('regpassword'), city=request.POST.get('city'), state=request.POST.get('state'))
+            
 
-            send_mail( subject, message , email_from, recipient_list )
+            print(message)
+            # send_mail( subject, message , email_from, recipient_list )
 
             del email
             del name
@@ -137,7 +139,7 @@ def authotp(request):
             # email_from = settings.EMAIL_HOST_USER
             # recipient_list = [ , 'fawmeeahzam123@gmail.com']
 
-            htmlmail(url, name, request.session['email'])
+            # htmlmail(url, name, request.session['email'])
             # send_mail( subject, message , email_from, recipient_list )
 
             del request.session['otp']
